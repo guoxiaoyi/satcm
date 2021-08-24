@@ -1,0 +1,26 @@
+<%= render 'layouts/left' %>
+<div class="page-right direction-column">
+  <% 5.times do |i|%>
+  <h2 class="group-title">
+    <div>
+      新闻分类<%= i %>
+      <span> <%= link_to '子分类1', '#'%> </span>
+      <span> <%= link_to '子分类2', '#'%> </span>
+      <span> <%= link_to '子分类3', '#'%> </span>
+    </div>
+  </h2>
+  <ul class="article-list">
+    <% 5.times do %>
+    <li>
+      <%= link_to "#" do %>
+      <div>
+        <span class="type">【处室新闻】</span>
+        <span class="flex-item"> 国家卫生健康委员会2021年7月16日媒体宣 </span>
+      </div>
+      <span class="time"> <%= Time.now %> </span>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">导航条设置</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                <th>名称</th>
+                <th>链接</th>
+                <th>排序</th>
+                <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @navigation_bars.each do |navigation_bar| %>
+                <tr>
+                    <td><%= navigation_bar.name %></td>
+                    <td><%= navigation_bar.url %></td>
+                    <td><%= navigation_bar.position %></td>
+                    <td>
+                        <%= link_to 'Edit', edit_admin_navigation_bar_path(navigation_bar) %>
+                        <%= link_to 'Destroy', [:admin, navigation_bar], method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table> 
+    </div>
+    <!-- /.card-body --> 
+</div>

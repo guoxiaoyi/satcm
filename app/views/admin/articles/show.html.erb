@@ -1,0 +1,24 @@
+<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">
+      <%= link_to '后退', admin_articles_path, class: "btn btn-default" %> |
+      <%= link_to '编辑', edit_admin_article_path(@article), class: "btn btn-primary" %>
+    </h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <h3> <%= @article.title %> </h3>
+    <p style="margin-bottom: 0"> <strong>作者:</strong> <%= @article.author %> </p>
+    <p> <strong>分类:</strong> <%= @article.article_category.name %></p>
+    <hr />
+    <p><%= @article.brief %></p>
+    <hr />
+    <div class="content">
+      <%= raw @article.content %>
+    </div>
+  </div>
+  <!-- /.card-body --> 
+</div>
+
+

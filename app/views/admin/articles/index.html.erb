@@ -1,0 +1,30 @@
+<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">
+      <%= link_to '新增', new_admin_article_path, class: "btn btn-primary" %>
+    </h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+      <table class="table table-bordered">
+        <tr>
+          <td>分类 </td>
+          <td>标题 </td>
+          <td></td>
+        </tr>
+        <% @articles.each do |article| %>
+          <tr>
+            <td><%= article.article_category.name %></td>
+            <td><%= article.title %></td>
+            <td>
+              <%= link_to '显示', admin_article_path(article) %>
+              <%= link_to '编辑', edit_admin_article_path(article) %>
+              <%= link_to '删除', [:admin, article], method: :delete, data: { confirm: '确定删除吗?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
+  <!-- /.card-body --> 
+</div>

@@ -1,0 +1,1 @@
+json.extract! @swiper, :title, :url, :position, :link, :created_at, :updated_at

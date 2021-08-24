@@ -1,0 +1,10 @@
+<%= render 'layouts/left', category: @category %>
+<div class="page-right direction-column">
+  <h2 class="group-title">
+    <div> <%= @article.title %> </div>
+  </h2>
+  <div class="article-content">
+    <%= raw @article.content %>
+  </div>
+</div>
+

@@ -1,0 +1,57 @@
+// Place all the styles related to the article controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.page-left {
+  width: 218px;
+  margin-right: 33px;
+  .menu-item {
+    display: flex;
+    height: 40px;
+    background: #810000;
+    color: #FFF;
+    font-size: 16px;
+    &+.menu-item{
+      margin-top: 8px;
+    }
+    align-items: center;
+    position: relative;
+    &:before {
+      margin-left: 15px;
+      margin-right: 10px;
+      display: block;
+      content: '';
+      border: 6px solid;
+      border-color: transparent transparent transparent #FFF;
+    }
+  }
+}
+
+.page-right {
+  padding-left: 62px;
+  flex: 1;
+  border-left: 1px solid #810000;
+}
+
+.article-list {
+  margin-bottom: 30px;
+  li{
+    height: 25px;
+    a{
+      display: flex;
+      color: #666;
+      justify-content: space-between;
+    }
+  }
+}
+.article-content {
+  display: block;
+  width: 667px;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  div {
+    display: block;
+  }
+}

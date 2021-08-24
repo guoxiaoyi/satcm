@@ -1,0 +1,38 @@
+<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><%= link_to '新增', new_admin_article_category_path, class: "btn btn-primary" %></h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table class="table table-bordered" id="article_category_table">
+          <% @article_categories.each do |article_category| %>
+            <tr data-tt-id="<%= article_category.id %>">
+              <td width="80%">
+                <%= article_category.name %>
+                <div class="custom-control custom-switch d-inline-block">
+                  <input type="checkbox" class="custom-control-input" <%= "checked" if article_category.is_nav %> id="customSwitch<%= article_category.id %>" data-url="<%= admin_article_category_update_nav_path(article_category)%>">
+                  <label class="custom-control-label" for="customSwitch<%= article_category.id %>"></label>
+                </div>
+              </td>
+              <td>
+                <%= link_to '编辑', edit_admin_article_category_path(article_category) %>
+                <%= link_to '删除', [:admin, article_category], method: :delete, data: { confirm: '确认删除吗' } %>
+              </td>
+            </tr>
+            <% article_category.descendants.each do |item| %>
+              <tr data-tt-id="<%= item.id %>" data-tt-parent-id="<%= item.parent_id%>">
+                <td width="80%"><%= item.name %></td>
+                <td>
+                  <%= link_to '编辑', edit_admin_article_category_path(item) %>
+                  <%= link_to '删除', [:admin, item], method: :delete, data: { confirm: '确认删除吗' } %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+    </div>
+    <!-- /.card-body --> 
+</div>
+
+

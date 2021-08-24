@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @swiper.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @swiper.url %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @swiper.position %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @swiper.link %>
+</p>
+
+<%= link_to 'Edit', edit_admin_swiper_path(@swiper) %> |
+<%= link_to 'Back', admin_swipers_path %>

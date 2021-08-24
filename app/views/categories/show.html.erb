@@ -1,0 +1,44 @@
+<%= render 'layouts/left', category: @category.root %>
+<div class="page-right direction-column">
+  <% if @category.level == 0 %>
+    <% @category.root.children.each do |childre_category| %>
+      <h2 class="group-title">
+        <div>
+          <%= childre_category.name %>
+          <% childre_category.children.each do |item|%>
+            <span> <%= link_to item.name, category_path(item) %> </span>
+          <% end %>
+        </div>
+      </h2>
+      <ul class="article-list">
+        <% childre_category.articles.each do |article|%>
+        <li>
+          <%= link_to article_path(article) do %>
+          <span class="flex-item"> <%= article.title %> </span>
+          <span class="time"> <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %> </span>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% else %>
+    <h2 class="group-title">
+      <div>
+        <%= @category.name %>
+        <% @category.children.each do |item|%>
+          <span> <%= link_to item.name, category_path(item) %> </span>
+        <% end %>
+      </div>
+    </h2>
+    <ul class="article-list">
+      <% @category.articles.each do |article|%>
+      <li>
+        <%= link_to article_path(article) do %>
+          <span class="flex-item"> <%= article.title %> </span>
+          <span class="time"> <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %> </span>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

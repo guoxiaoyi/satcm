@@ -1,0 +1,29 @@
+<%= content_for :page_header do %>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <ol class="breadcrumb">
+            <% pages.each do |item| %>
+              <li class="breadcrumb-item <%= 'active' if item[:is_current] %>">
+                <%= 
+                  unless item[:is_current]
+                    link_to item[:name], item[:path]
+                  else
+                    item[:name]
+                  end 
+                %>
+              </li>
+            <% end %>
+          </ol>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          
+          <h1 class="m-0"><%#= current_page %></h1>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<% end %>

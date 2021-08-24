@@ -1,0 +1,14 @@
+
+<%= render 'shared/admin/page_header', current_page: '修改分类', pages: @page_header %>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+          <%= link_to '后退', admin_article_categories_path, class: "btn btn-default" %>
+        </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+       <%= render 'form' %>
+    </div>
+    <!-- /.card-body --> 
+</div>

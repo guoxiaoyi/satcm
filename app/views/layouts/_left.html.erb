@@ -1,0 +1,6 @@
+<div class="page-left direction-column">
+  <h2 class="group-title"><%= category.name %></h2>
+  <% category.children.each do |category| %>
+    <%= link_to category.name, category_path(category), class: "menu-item" %>
+  <% end %>
+</div>

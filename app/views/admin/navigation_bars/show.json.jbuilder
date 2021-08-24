@@ -1,0 +1,1 @@
+json.extract! @navigation_bar, :name, :url, :custom_order, :created_at, :updated_at
