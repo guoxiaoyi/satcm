@@ -5,7 +5,14 @@ class Admin::ArticlesController < Admin::ApplicationController
   # GET /admin/articles
   # GET /admin/articles.json
   def index
-    @articles = Article.all
+    if params[:article_category_id]
+      categories = ArticleCategory.find(params[:article_category_id]).self_and_descendants
+      @articles = Article.where(article_category_id: categories.pluck(:id))
+    
+    else
+      @articles = Article.all
+    end
+    
   end
 
   # GET /admin/articles/1

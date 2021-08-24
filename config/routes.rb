@@ -1,8 +1,7 @@
 Rails.application.routes.draw do 
+  
   namespace :admin do
     resources :links
-  end
-  namespace :admin do
     resources :articles do
       collection do
         post :images
@@ -25,8 +24,8 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   root 'welcome#index'
-
   resources :categories, only: [:show]
 
   resources :article, only: [:index, :show]
+  resources :office, only: [:show]
 end

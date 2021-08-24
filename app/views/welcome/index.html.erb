@@ -19,7 +19,7 @@
       <% @articles.each do |article| %>
       <dl>
         <dt><%= article.title%></dt>
-        <dd> <%= article.try(:brief) %> </dd>
+        <dd> <%= article.brief %> </dd>
       </dl>
       <% end %>
     </div>
@@ -34,44 +34,37 @@
 </div>
 <div class="hr"></div>
 <div class="direction-column">
-  <h2 class="group-title"> 科室建设 <a href="#">更多</a> </h2>
+  <h2 class="group-title"> 科室建设 </h2>
   <div class="department">
     <div class="item-list">
-      <a href="#">战略<br/>规划处</a>
-      <a href="#">政策<br/>研究处</a>
-      <a href="#">项目<br/>监管处</a>
-      <a href="#">综合<br/>统计处</a>
-      <a href="#">医疗服务<br/>评价处</a>
-      <a href="#">信息化<br/>建设处</a>
-      <a href="#">健康医疗<br/>大数据处</a>
-      <a href="#">专项<br/>调查处</a>
+      <%= link_to '战略<br>规划处'.html_safe, office_path('战略规划处') %>
+      <%= link_to '政策<br>研究处'.html_safe, office_path('政策研究处') %>
+      <%= link_to '项目<br>监管处'.html_safe, office_path('项目监管处') %>
+      <%= link_to '综合<br>统计处'.html_safe, office_path('综合统计处') %>
+      <%= link_to '医疗服务<br>评价处'.html_safe, office_path('医疗服务评价处') %>
+      <%= link_to '信息化<br>建设处'.html_safe, office_path('信息化建设处') %>
+      <%= link_to '健康医疗<br>大数据处'.html_safe, office_path('健康医疗大数据处') %>
+      <%= link_to '专项<br>调查处'.html_safe, office_path('专项调查处') %>
     </div>
+    <%
+      office_build_articles = Article.where(article_category_id: ArticleCategory.find_by(name: '科室建设').descendants.pluck(:id)).order(created_at: :desc)
+    %>
     <div class="item-news direction-column">
-      <a href="#">
-        <p>学党史、知党情、跟党走</p>
-        <span>
-          国家中医药管理局监测统计中心为国家中医药管理局直属副局级公益一类事业单位。 主要提供为中医药事业发展提供统计与
-        监测服务;中医药发展战略、规划与政策研究;中
-        </span>
-      </a>
-      <a href="#">
-        <p>学党史、知党情、跟党走</p>
-        <span>
-          国家中医药管理局监测统计中心为国家中医药管理局直属副局级公益一类事业单位。 主要提供为中医药事业发展提供统计与
-        监测服务;中医药发展战略、规划与政策研究;中
-        </span>
-      </a>
+      <% office_build_articles.limit(2).each do |article|%>
+        <%= link_to article_path(article) do %>
+          <p><%= article.title %></p>
+          <span>
+            <%= article.brief %>
+          </span>
+        <% end %>
+      <% end %>
     </div>
     <ul class="item-link direction-column">
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
-      <li><a href="#">2信息所纪委书记李海燕作“不忘初心、牢记使命”主题...</a></li>
+      <% office_build_articles.offset(2).limit(9).each do |article| %>
+      <li>
+        <%= link_to truncate("[#{article.article_category.name}] #{article.title}", length: 30), article_path(article) %>
+      </li>
+      <% end %>
     </ul>
   </div>
 </div>
@@ -80,57 +73,39 @@
     <h2 class="group-title"> 党群建设 </h2>
     <%= image_tag "/assets/a.jpg", width: '100%' %>
     <ul class="parties-building">
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
+      <%
+        group_article = Article.where(article_category_id: ArticleCategory.find_by(name: '党群建设').descendants.pluck(:id)).order(created_at: :desc)
+      %>
+      <% group_article.limit(8).each do |article| %>
+        <li><%= link_to truncate(article.title, length: 16), article_path(article) %></li>
+      <% end %>
     </ul>
     <h2 class="group-title"> 学术研究 </h2>
     <%= image_tag "/assets/a.jpg", width: '100%' %>
     <ul class="learning">
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
-      <li><a href="#">习近平和科技工作者的七个温暖瞬间</a></li>
+      <%
+        study_article = Article.where(article_category_id: ArticleCategory.find_by(name: '学术研究').descendants.pluck(:id)).order(created_at: :desc)
+      %>
+      <% study_article.limit(8).each do |article| %>
+        <li><%= link_to truncate(article.title, length: 16), article_path(article) %></li>
+      <% end %>
     </ul>
   </div>
   <div class="welcome-right direction-column">
     <h2 class="group-title"> 信息发布 </h2>
-    <dl class="notice">
-      <dt>政策文件必须严惩恐吓香港特区东奔西走</dt>
-      <dd>
-        <a href="#">习近平和科技工作者的七个温暖瞬间习近平和科技工作者的七个温暖瞬间习近平和科技工作者的七个温暖瞬间</a>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-        <a href="#">习近平和科技工作者的七个666666666666</a>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-      </dd>
-    </dl>
-    <dl class="notice">
-      <dt>政策文件必须严惩恐吓香港特区东奔西走</dt>
-      <dd>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-      </dd>
-    </dl>
-    <dl class="notice">
-      <dt>政策文件必须严惩恐吓香港特区东奔西走</dt>
-      <dd>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-        <a href="#">习近平和科技工作者的七个温暖瞬间</a>
-      </dd>
-    </dl>
+      <%
+        message = ArticleCategory.find_by(name: '信息发布').descendants
+      %>
+      <% message.limit(3).each do |category| %>
+        <dl class="notice">
+          <dt><%= category.name %></dt>
+          <dd>
+            <% category.articles.limit(4).order(created_at: :desc).each do |article| %>
+              <%= link_to article.title, article_path(article) %>
+            <% end %>
+          </dd>
+        </dl>
+      <% end %>
     <h2 class="group-title"> 数据平台 </h2>
     <ul>
       <li>

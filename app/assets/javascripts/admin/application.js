@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require_self
 //= require tinymce-jquery
-
+var current = ''
 $(document).ready(function(){
     $("#article_category_table").treetable();
     $("#article_category_table .custom-control-input").change(function() {
@@ -25,4 +25,10 @@ $(document).ready(function(){
         })
 
     })
+
+    $(".custom-nav").click(function() {
+        current = $(this).data('current')
+    })
 })
+
+console.log(current)

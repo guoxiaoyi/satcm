@@ -8,7 +8,20 @@
   <div class="form-group">
     <%= f.label :article_category_id %>
     <% 
-      article_categories = ArticleCategory.roots.map { |i| [[i.name], i.descendants.map { |k| ["#{'-' * (k.level-1)} #{k.name}", k.id] }]} 
+      if params[:article_category_id] || action_name == 'edit'
+        article_category = ArticleCategory.find(params[:article_category_id]) if params[:article_category_id]
+        article_category = @article.article_category.self_and_ancestors.find { |ar| ar.level == 1 } if action_name == 'edit'
+        if article_category.root.name == '科室建设'
+          article_categories = [article_category.descendants.map { |k| ["#{'--' * (k.level-2)} #{k.name}", k.id] }]
+          article_categories = [article_categories.unshift([article_category.name])]
+        else
+          # article_category.self_and_descendants.map { |k| ["#{'--' * (k.level-1)} #{k.name}", k.id] }
+          article_categories = [article_category.self_and_descendants.map { |k| ["#{'--' * (k.level-1)} #{k.name}", k.id] }]
+          article_categories = [article_categories.unshift([article_category.root.name])]
+        end
+      else
+        article_categories = ArticleCategory.roots.map { |i| [[i.name], i.descendants.map { |k| ["#{'--' * (k.level-1)} #{k.name}", k.id] }]} 
+      end
     %>
     <%= f.select :article_category_id, grouped_options_for_select(article_categories), {}, {class: "form-control"} %>
   </div>

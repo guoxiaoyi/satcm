@@ -2,21 +2,27 @@
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">
-      <%= link_to '新增', new_admin_article_path, class: "btn btn-primary" %>
+      <%= link_to '新增', new_admin_article_path(article_category_id: params[:article_category_id]), class: "btn btn-primary" %>
     </h3>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
       <table class="table table-bordered">
         <tr>
-          <td>分类 </td>
-          <td>标题 </td>
-          <td></td>
+          <td width="200">分类 </td>
+          <td width="220">标题 </td>
+          <td>摘要 </td>
+          <td width="200">创建日期 </td>
+          <td width="200">更新日期 </td>
+          <td width="150"></td>
         </tr>
         <% @articles.each do |article| %>
           <tr>
             <td><%= article.article_category.name %></td>
             <td><%= article.title %></td>
+            <td><%= article.brief %></td>
+            <td><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td><%= article.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
             <td>
               <%= link_to '显示', admin_article_path(article) %>
               <%= link_to '编辑', edit_admin_article_path(article) %>

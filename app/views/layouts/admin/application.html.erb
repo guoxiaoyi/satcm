@@ -68,41 +68,51 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <%= link_to admin_root_path, class: 'nav-link' do %>
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <%= link_to admin_root_path, class: 'custom-nav nav-link', data: {current: "首页"} do %>
+              <%# <i class="nav-icon fas fa-tachometer-alt"></i> %>
               <p> 首页 </p>
             <% end %>
           </li>
-  
+          <% ArticleCategory.roots.each do |category|%>
           <li class="nav-item">
-            <%= link_to admin_swipers_path, class: "nav-link" do %>
-              <i class="nav-icon far fa-image"></i>
+            <%= link_to admin_articles_path, class: "custom-nav nav-link", data: {current: ""} do %>
+              <p> <%= category.name %> <i class="right fas fa-angle-left"></i> </p>
+            <% end %>
+            <ul class="nav nav-treeview">
+              <% category.children.each do |childre_category| %>
+              <li class="nav-item">
+                <%= link_to admin_articles_path(article_category_id: childre_category.id), class: "nav-link", data: {current: childre_category.name } do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><%= childre_category.name %></p>
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+          </li>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to admin_swipers_path, class: "custom-nav nav-link", data: {current: "轮播图"} do %>
+              <%# <i class="nav-icon far fa-image"></i> %>
               <p> 轮播图 </p>
             <% end %>
           </li>
 
           <li class="nav-item">
-            <%= link_to admin_article_categories_path, class: "nav-link" do %>
-              <i class="nav-icon fas fa-ellipsis-h"></i>
+            <%= link_to admin_article_categories_path, class: "custom-nav nav-link", data: {current: "分类管理"} do %>
+              <%# <i class="nav-icon fas fa-ellipsis-h"></i> %>
               <p> 分类管理 </p>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to admin_articles_path, class: "nav-link" do %>
-              <i class="nav-icon fas fa-copy"></i>
-              <p> 文章管理 </p>
             <% end %>
           </li>
 
           <li class="nav-item">
-            <%= link_to admin_links_path(category: 'brother'), class: "nav-link" do %>
-              <i class="nav-icon fas fa-link"></i>
+            <%= link_to admin_links_path(category: 'brother'), class: "custom-nav nav-link", data: {current: "兄弟链接"} do %>
+              <%# <i class="nav-icon fas fa-link"></i> %>
               <p> 兄弟链接 </p>
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to admin_links_path(category: 'friend'), class: "nav-link" do %>
-              <i class="nav-icon fas fa-link"></i>
+            <%= link_to admin_links_path(category: 'friend'), class: "custom-nav nav-link", data: {current: "友情链接"} do %>
+              <%# <i class="nav-icon fas fa-link"></i> %>
               <p> 友情链接 </p>
             <% end %>
           </li>
