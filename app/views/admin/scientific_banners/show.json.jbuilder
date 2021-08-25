@@ -1,0 +1,1 @@
+json.extract! @scientific_banner, :path, :link, :position, :created_at, :updated_at

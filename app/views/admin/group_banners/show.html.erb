@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @group_banner.path %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @group_banner.link %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @group_banner.position %>
+</p>
+
+<%= link_to 'Edit', edit_admin_group_banner_path(@group_banner) %> |
+<%= link_to 'Back', admin_group_banners_path %>

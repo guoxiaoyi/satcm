@@ -1,35 +1,35 @@
 <%= form_for([:admin, @setting]) do |f| %>
   <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :keywords %>
+    <%= f.text_field :keywords, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
     <%= f.label :logo %>
+    <br />
+    <%= image_tag @setting.logo.url, height: '40' unless @setting.logo.blank? %>
     <%= f.file_field :logo, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :tel %>
     <%= f.text_field :tel, class: 'form-control'  %>
-    </div>
+  </div>
   <div class="form-group">
     <%= f.label :address %>
     <%= f.text_field :address, class: 'form-control'  %>
   </div>
   <div class="form-group">
     <%= f.label :qrcode %>
+    <br />
+    <%= image_tag @setting.qrcode.url, height: '40' unless @setting.qrcode.blank? %>
     <%= f.file_field :qrcode, class: 'form-control'  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :banner_a %>
-    <%= f.file_field :banner_a, class: 'form-control'  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :banner_a_link %>
-    <%= f.text_field :banner_a_link, class: 'form-control'  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :banner_b %>
-    <%= f.file_field :banner_b, class: 'form-control'  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :banner_b_link %>
-    <%= f.text_field :banner_b_link, class: 'form-control'  %>
   </div>
   <div class="form-group">
     <%= f.label :oa_path %>

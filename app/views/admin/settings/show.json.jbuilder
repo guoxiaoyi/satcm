@@ -1,1 +1,1 @@
-json.extract! @setting, :logo, :tel, :address, :qrcode, :banner_a, :banner_b, :oa_path, :created_at, :updated_at
+json.extract! @setting, :logo, :tel, :address, :qrcode, :oa_path, :created_at, :updated_at

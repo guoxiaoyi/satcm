@@ -1,0 +1,31 @@
+<h1>Listing group_banners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th>Link</th>
+      <th>Position</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group_banners.each do |group_banner| %>
+      <tr>
+        <td><%= group_banner.path %></td>
+        <td><%= group_banner.link %></td>
+        <td><%= group_banner.position %></td>
+        <td><%= link_to 'Show', [:admin, group_banner] %></td>
+        <td><%= link_to 'Edit', edit_admin_group_banner_path(group_banner) %></td>
+        <td><%= link_to 'Destroy', [:admin, group_banner], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group banner', new_admin_group_banner_path %>

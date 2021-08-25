@@ -105,6 +105,20 @@
           </li>
 
           <li class="nav-item">
+            <%= link_to admin_group_banners_path, class: "custom-nav nav-link", data: {current: "分类管理"} do %>
+              <%# <i class="nav-icon fas fa-ellipsis-h"></i> %>
+              <p> 党群建设链接 </p>
+            <% end %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to admin_scientific_banners_path, class: "custom-nav nav-link", data: {current: "分类管理"} do %>
+              <%# <i class="nav-icon fas fa-ellipsis-h"></i> %>
+              <p> 学术研究链接 </p>
+            <% end %>
+          </li>
+
+          <li class="nav-item">
             <%= link_to admin_links_path(category: 'brother'), class: "custom-nav nav-link", data: {current: "兄弟链接"} do %>
               <%# <i class="nav-icon fas fa-link"></i> %>
               <p> 兄弟链接 </p>

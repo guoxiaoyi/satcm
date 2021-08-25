@@ -5,11 +5,11 @@ class CreateSettings < ActiveRecord::Migration[5.2]
       t.string :tel
       t.string :address
       t.string :qrcode
-      t.string :banner_a
-      t.string :banner_b
-      t.string :banner_a_link
-      t.string :banner_b_link
       t.string :oa_path
+      t.string :title
+      t.string :description
+      t.string :keywords
+
 
       t.timestamps
     end

@@ -1,0 +1,31 @@
+<h1>Listing scientific_banners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th>Link</th>
+      <th>Position</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scientific_banners.each do |scientific_banner| %>
+      <tr>
+        <td><%= scientific_banner.path %></td>
+        <td><%= scientific_banner.link %></td>
+        <td><%= scientific_banner.position %></td>
+        <td><%= link_to 'Show', [:admin, scientific_banner] %></td>
+        <td><%= link_to 'Edit', edit_admin_scientific_banner_path(scientific_banner) %></td>
+        <td><%= link_to 'Destroy', [:admin, scientific_banner], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scientific banner', new_admin_scientific_banner_path %>

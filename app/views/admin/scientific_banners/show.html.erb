@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @scientific_banner.path %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @scientific_banner.link %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @scientific_banner.position %>
+</p>
+
+<%= link_to 'Edit', edit_admin_scientific_banner_path(@scientific_banner) %> |
+<%= link_to 'Back', admin_scientific_banners_path %>

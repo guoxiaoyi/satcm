@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_023336) do
+ActiveRecord::Schema.define(version: 2021_08_25_145856) do
 
   create_table "article_categories", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2021_08_25_023336) do
     t.text "brief"
   end
 
+  create_table "group_banners", force: :cascade do |t|
+    t.string "path"
+    t.string "link"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", force: :cascade do |t|
     t.string "file"
     t.datetime "created_at", null: false
@@ -60,16 +68,23 @@ ActiveRecord::Schema.define(version: 2021_08_25_023336) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "scientific_banners", force: :cascade do |t|
+    t.string "path"
+    t.string "link"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "settings", force: :cascade do |t|
     t.string "logo"
     t.string "tel"
     t.string "address"
     t.string "qrcode"
-    t.string "banner_a"
-    t.string "banner_b"
-    t.string "banner_a_link"
-    t.string "banner_b_link"
     t.string "oa_path"
+    t.string "title"
+    t.string "description"
+    t.string "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,13 +1,12 @@
 <div class="top">
   <div class="container">
     <form> <input type="text" /> </form>
-    <%= link_to "OA系统" %>
-    <%= link_to "手机访问" %>
+    <%= link_to "OA系统", @setting.oa_path, target: "blank" %>
   </div>
 </div>
 
 <div class="container">
-  <%= image_tag "logo.jpg", height: '80' %>
+  <%= image_tag @setting.logo.url , height: '80' %>
 </div>
 
 <div class="nav">

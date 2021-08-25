@@ -19,8 +19,8 @@
             <tbody>
               <% @links.each do |link| %>
                 <tr>
-                  <td><%= link.path %></td>
                   <td><%= link.name %></td>
+                  <td><%= link.path %></td>
                   <td>
                     <%= link_to '编辑', edit_admin_link_path(link) %>
                     <%= link_to '删除', [:admin, link], method: :delete, data: { confirm: '确定删除吗？' } %>

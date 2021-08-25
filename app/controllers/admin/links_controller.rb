@@ -28,7 +28,7 @@ class Admin::LinksController < Admin::ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to admin_links_path, notice: 'Link was successfully created.' }
+        format.html { redirect_to admin_links_path(category: @link.category), notice: 'Link was successfully created.' }
         format.json { render action: 'show', status: :created, location: @link }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class Admin::LinksController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to admin_links_path, notice: 'Link was successfully updated.' }
+        format.html { redirect_to admin_links_path(category: @link.category), notice: 'Link was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class Admin::LinksController < Admin::ApplicationController
   def destroy
     @link.destroy
     respond_to do |format|
-      format.html { redirect_to admin_links_url, notice: 'Link was successfully destroyed.' }
+      format.html { redirect_to admin_links_path(category: @link.category), notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

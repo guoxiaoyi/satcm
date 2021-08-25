@@ -5,8 +5,6 @@ one:
   tel: MyString
   address: MyString
   qrcode: MyString
-  banner_a: MyString
-  banner_b: MyString
   oa_path: MyString
 
 two:
@@ -14,6 +12,4 @@ two:
   tel: MyString
   address: MyString
   qrcode: MyString
-  banner_a: MyString
-  banner_b: MyString
   oa_path: MyString

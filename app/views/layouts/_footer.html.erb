@@ -1,12 +1,64 @@
-<div class="footer">
-  <div class="container">
-    <div class="contact direction-column">
-      <p>地址: 4004004</p>
-      <p>电话: 4004004</p>
+<div class="footer direction-column">
+  <div class="container" style="justify-content: space-between;">
+    <div>
+      <div class="contact direction-column" style="justify-content: center; ">
+        <p>地址: <%= @setting.address %></p>
+        <p>电话: <%= @setting.tel %></p>
+      </div>
+      <div class="links direction-column">
+        <h6>兄弟单位</h6>
+        <div style="display: block">
+          <% Link.where(category: 'brother').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'brother').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'brother').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'brother').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'brother').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'brother').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'brother').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+        </div>
+      </div>
+      <div class="links direction-column">
+        <h6>友情连接</h6>
+        <div style="display: block">
+          <% Link.where(category: 'friend').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'friend').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'friend').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'friend').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'friend').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'friend').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+          <% Link.where(category: 'friend').each do |l| %>
+            <%= link_to l.name, l.path %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="links direction-column">
-      <h6>友情连接</h6>
-      <div style="display: block"><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a><a href="#">连接1</a></div>
-    </div>
+    <%= image_tag @setting.qrcode.url, width: 150 %>
   </div>
+  <div style="margin: 30px 0 0; align-items: center; justify-content: center; "> 版权信息 </div>
 </div>

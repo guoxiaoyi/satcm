@@ -11,6 +11,7 @@ class Admin::SettingsController < Admin::ApplicationController
   # GET /admin/settings/1
   # GET /admin/settings/1.json
   def show
+    
   end
 
   # GET /admin/settings/new
@@ -29,7 +30,7 @@ class Admin::SettingsController < Admin::ApplicationController
 
     respond_to do |format|
       if @setting.save
-        format.html { redirect_to [:admin, @setting], notice: 'Setting was successfully created.' }
+        format.html { redirect_to [:admin, @setting, 'index'], notice: 'Setting was successfully created.' }
         format.json { render action: 'show', status: :created, location: @setting }
       else
         format.html { render action: 'new' }
@@ -43,7 +44,7 @@ class Admin::SettingsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @setting.update(setting_params)
-        format.html { redirect_to [:admin, @setting], notice: 'Setting was successfully updated.' }
+        format.html { redirect_to  [:edit, :admin, @setting], notice: 'Setting was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -52,25 +53,17 @@ class Admin::SettingsController < Admin::ApplicationController
     end
   end
 
-  # DELETE /admin/settings/1
-  # DELETE /admin/settings/1.json
-  def destroy
-    @setting.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_settings_url, notice: 'Setting was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_setting
       @setting = Setting.first
+      Setting.create unless @setting
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def setting_params
-      params.require(:setting).permit(:logo, :tel, :address, :qrcode, :banner_a, :banner_b, :oa_path)
+      params.require(:setting).permit(:logo, :tel, :address, :qrcode, :oa_path, :title, :description, :keywords)
     end
 
     def page_header
