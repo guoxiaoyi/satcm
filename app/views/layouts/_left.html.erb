@@ -1,5 +1,5 @@
 <div class="page-left direction-column">
-  <h2 class="group-title">
+  <h2 class="group-title link">
     <%= 
       if category.root.name == '科室建设'
         link_to category.name, office_path(category.self_and_ancestors.find { |ar| ar.level == 1 }.name)

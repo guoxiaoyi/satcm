@@ -1,0 +1,41 @@
+<%= form_for([:admin, @setting]) do |f| %>
+  <div class="form-group">
+    <%= f.label :logo %>
+    <%= f.file_field :logo, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tel %>
+    <%= f.text_field :tel, class: 'form-control'  %>
+    </div>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :qrcode %>
+    <%= f.file_field :qrcode, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :banner_a %>
+    <%= f.file_field :banner_a, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :banner_a_link %>
+    <%= f.text_field :banner_a_link, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :banner_b %>
+    <%= f.file_field :banner_b, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :banner_b_link %>
+    <%= f.text_field :banner_b_link, class: 'form-control'  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :oa_path %>
+    <%= f.text_field :oa_path, class: 'form-control'  %>
+  </div>
+  <div class="actions">
+    <%= f.submit "提交", class: "btn btn-primary"%>
+  </div>
+<% end %>

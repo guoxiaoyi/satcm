@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  logo: MyString
+  tel: MyString
+  address: MyString
+  qrcode: MyString
+  banner_a: MyString
+  banner_b: MyString
+  oa_path: MyString
+
+two:
+  logo: MyString
+  tel: MyString
+  address: MyString
+  qrcode: MyString
+  banner_a: MyString
+  banner_b: MyString
+  oa_path: MyString

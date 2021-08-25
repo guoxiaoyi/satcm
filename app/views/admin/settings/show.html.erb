@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @setting.logo %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @setting.tel %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @setting.address %>
+</p>
+
+<p>
+  <strong>Qrcode:</strong>
+  <%= @setting.qrcode %>
+</p>
+
+<p>
+  <strong>Banner a:</strong>
+  <%= @setting.banner_a %>
+</p>
+
+<p>
+  <strong>Banner b:</strong>
+  <%= @setting.banner_b %>
+</p>
+
+<p>
+  <strong>Oa path:</strong>
+  <%= @setting.oa_path %>
+</p>
+
+<%= link_to 'Edit', edit_admin_setting_path(@setting) %> |
+<%= link_to 'Back', admin_settings_path %>

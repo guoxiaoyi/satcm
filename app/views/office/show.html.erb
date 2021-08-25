@@ -1,26 +1,26 @@
 <%= render 'layouts/left', category: @category.self_and_ancestors.find{|category| category.level == 1} %>
 <div class="page-right direction-column">
 <% if @category.level == 1 %>
-<% @category.children.each do |childre_category| %>
-  <h2 class="group-title">
-    <div>
-      <%= childre_category.name %>
-      <% childre_category.children.each do |item|%>
-        <span> <%= link_to item.name, office_path(item.name) %> </span>
+  <% @category.children.each do |childre_category| %>
+    <h2 class="group-title">
+      <div>
+        <%= childre_category.name %>
+        <% childre_category.children.each do |item|%>
+          <span> <%= link_to item.name, office_path(item.name) %> </span>
+        <% end %>
+      </div>
+    </h2>
+    <ul class="article-list">
+      <% childre_category.articles.limit(10).each do |article|%>
+      <li>
+        <%= link_to article_path(article) do %>
+        <span class="flex-item"> <%= article.title %> </span>
+        <span class="time"> <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %> </span>
+        <% end %>
+      </li>
       <% end %>
-    </div>
-  </h2>
-  <ul class="article-list">
-    <% childre_category.articles.each do |article|%>
-    <li>
-      <%= link_to article_path(article) do %>
-      <span class="flex-item"> <%= article.title %> </span>
-      <span class="time"> <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %> </span>
-      <% end %>
-    </li>
-    <% end %>
-  </ul>
-<% end %>
+    </ul>
+  <% end %>
 <% else %>
   <h2 class="group-title">
     <div>

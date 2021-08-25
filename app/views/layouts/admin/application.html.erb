@@ -116,6 +116,12 @@
               <p> 友情链接 </p>
             <% end %>
           </li>
+          <li class="nav-item">
+            <%= link_to edit_admin_setting_path('index'), class: "custom-nav nav-link", data: {current: "友情链接"} do %>
+              <%# <i class="nav-icon fas fa-link"></i> %>
+              <p> 系统设置 </p>
+            <% end %>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

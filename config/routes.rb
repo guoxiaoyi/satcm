@@ -1,6 +1,6 @@
 Rails.application.routes.draw do 
-  
   namespace :admin do
+    resources :settings
     resources :links
     resources :articles do
       collection do

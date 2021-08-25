@@ -45,3 +45,4 @@ ArticleCategory.create([
 
   ])
 end
+Setting.create()

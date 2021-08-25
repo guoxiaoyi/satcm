@@ -136,6 +136,12 @@ li {
 }
 
 .group-title {
+  &.link{
+    a {
+      font-size: 18px;
+      color: #b51c21;
+    }
+  }
   color: #b51c21;
   font-size: 18px;
   line-height: 24px;
