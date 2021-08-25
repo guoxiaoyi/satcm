@@ -73,7 +73,7 @@
               <p> 首页 </p>
             <% end %>
           </li>
-          <% ArticleCategory.roots.each do |category|%>
+          <% ArticleCategory.roots.where.not(name: "中心简介").each do |category|%>
           <li class="nav-item">
             <%= link_to admin_articles_path, class: "custom-nav nav-link", data: {current: ""} do %>
               <p> <%= category.name %> <i class="right fas fa-angle-left"></i> </p>
@@ -90,6 +90,13 @@
             </ul>
           </li>
           <% end %>
+
+          <li class="nav-item">
+            <%= link_to admin_companies_path, class: "custom-nav nav-link", data: {current: "轮播图"} do %>
+              <p> 中心简介 </p>
+            <% end %>
+          </li>
+          
           <li class="nav-item">
             <%= link_to admin_swipers_path, class: "custom-nav nav-link", data: {current: "轮播图"} do %>
               <%# <i class="nav-icon far fa-image"></i> %>

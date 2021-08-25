@@ -1,5 +1,6 @@
 Rails.application.routes.draw do 
   namespace :admin do
+    resource :companies
     resources :image_links
     resources :group_banners
     resources :scientific_banners

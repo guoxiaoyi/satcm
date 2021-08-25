@@ -26,8 +26,7 @@
     <div class="center direction-column">
       <h2 class="group-title"> 中心简介 </h2>
       <div class="satcm-content">
-        国家中医药管理局监测统计中心为国家中医药管理局直属副局级公益一类事业单位。 主要提供为中医药事业发展提供统计与
-        监测服务;中医药发展战略、规划与政策研究;中医药相关数据统计分析;中医医疗服务质量和医疗机构运行情况监测评估;相关技术与咨询服务。
+        <%= ArticleCategory.find_by(name: '中心简介').articles.first.brief %>
       </div>
     </div>
   </div>

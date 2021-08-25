@@ -1,0 +1,15 @@
+<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">
+      <%= link_to '编辑', edit_admin_companies_path, class: "btn btn-primary" %>
+    </h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <div class="content" style="min-height: 300px;">
+      <%= raw @article&.content %>
+    </div>
+  </div>
+  <!-- /.card-body --> 
+</div>

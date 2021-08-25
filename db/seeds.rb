@@ -10,6 +10,7 @@ group = ArticleCategory.create({name: '组织架构'})
 office_build = ArticleCategory.create({name: "科室建设", custom_key: '科室建设'})
 
 ArticleCategory.create([
+  {name: '中心简介'}, 
   {name: '党群建设'}, 
   {name: '政策研究'},
   {name: '通知公告'}, 
@@ -33,7 +34,6 @@ ArticleCategory.create([
   {parent_id: office_build.id, custom_key: '专项调查处', name: '专项调查处'}
 ])
 
-
 %w(战略规划处 政策研究处 项目监管处 综合统计处 医疗服务评价处 信息化建设处 健康医疗大数据处 专项调查处).each do |k|
   parent = ArticleCategory.find_by(custom_key: k)
   ArticleCategory.create([
@@ -45,4 +45,6 @@ ArticleCategory.create([
 
   ])
 end
-Setting.create()
+Setting.create
+
+ArticleCategory.find_by(name: '中心简介').articles.new({title: '中心简介', content: '中心简介'}).save
