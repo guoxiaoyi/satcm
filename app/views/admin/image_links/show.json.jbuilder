@@ -1,0 +1,1 @@
+json.extract! @image_link, :path, :link, :position, :created_at, :updated_at

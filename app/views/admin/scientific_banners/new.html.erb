@@ -1,5 +1,13 @@
-<h1>New scientific_banner</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', admin_scientific_banners_path %>
+<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">
+      <%= link_to '后退', admin_scientific_banners_path, class: "btn btn-default" %>
+    </h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <%= render 'form' %>
+  </div>
+  <!-- /.card-body --> 
+</div>

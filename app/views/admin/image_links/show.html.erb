@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @image_link.path %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @image_link.link %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @image_link.position %>
+</p>
+
+<%= link_to 'Edit', edit_admin_image_link_path(@image_link) %> |
+<%= link_to 'Back', admin_image_links_path %>

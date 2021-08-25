@@ -2,7 +2,7 @@
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">
-      <%= link_to '新增', new_admin_scientific_banner_path, class: "btn btn-primary" %>
+      <%= link_to '新增', new_admin_image_link_path, class: "btn btn-primary" %>
     </h3>
   </div>
   <!-- /.card-header -->
@@ -13,18 +13,18 @@
           <th>链接</th>
           <th>操作</th>
         </tr>
-        <% @scientific_banners.each do |scientific_banner| %>
+        <% @image_links.each do |image_link| %>
           <tr>
-            <td><%= image_tag scientific_banner.path.url, height: 30 %></td>
-            <td><%= scientific_banner.link %></td>
+            <td><%= image_tag image_link.path.url, height: 30 %></td>
+            <td><%= image_link.link %></td>
             <td>
-              <%= link_to '编辑', edit_admin_scientific_banner_path(scientific_banner) %>
-              <%= link_to '删除', [:admin, scientific_banner], method: :delete, data: { confirm: '确定删除吗？' } %>
+              <%= link_to '编辑', edit_admin_image_link_path(image_link) %>
+              <%= link_to '删除', [:admin, image_link], method: :delete, data: { confirm: '确定删除吗？' } %>
             </td>
           </tr>
         <% end %>
-
       </table>
   </div>
   <!-- /.card-body --> 
 </div>
+

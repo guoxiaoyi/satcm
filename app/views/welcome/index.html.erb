@@ -71,7 +71,11 @@
 <div class="direction-row" style="justify-content: space-between; margin-top: 28px;">
   <div class="welcome-left direction-column">
     <h2 class="group-title"> 党群建设 </h2>
-    <%= image_tag "/assets/a.jpg", width: '100%' %>
+    <% GroupBanner.all.order(position: :desc).each do |banner| %>
+      <%= link_to banner.link, target: "_blank" do %>
+        <%= image_tag banner.path.url, width: '100%' %>
+      <% end %>
+    <% end %>
     <ul class="parties-building">
       <%
         group_article = Article.where(article_category_id: ArticleCategory.find_by(name: '党群建设').descendants.pluck(:id)).order(created_at: :desc)
@@ -81,7 +85,11 @@
       <% end %>
     </ul>
     <h2 class="group-title"> 学术研究 </h2>
-    <%= image_tag "/assets/a.jpg", width: '100%' %>
+    <% ScientificBanner.all.order(position: :desc).each do |banner| %>
+      <%= link_to "/word/#{banner.link}", target: "_blank" do %>
+        <%= image_tag banner.path.url, width: '100%' %>
+      <% end %>
+    <% end %>
     <ul class="learning">
       <%
         study_article = Article.where(article_category_id: ArticleCategory.find_by(name: '学术研究').descendants.pluck(:id)).order(created_at: :desc)
@@ -108,12 +116,13 @@
       <% end %>
     <h2 class="group-title"> 数据平台 </h2>
     <ul>
+      <% ImageLink.all.order(position: :desc).each do |il| %>
       <li>
-        <a href="#"><%= image_tag '/assets/b.jpg', width: "100%" %></a>
+        <%= link_to il.link, target: "_blank" do %>
+          <%= image_tag il.path.url, width: "100%" %>
+        <% end %>
       </li>
-      <li>
-        <a href="#"><%= image_tag '/assets/b.jpg', width: "100%" %></a>
-      </li>
+      <% end %>
     </ul>
   </div>
 </div>
@@ -122,7 +131,10 @@
   var swiper = new Swiper('.news-swiper',{
     pagination: {
       el: '.swiper-pagination',
-      clickable: true
+      clickable: true,
+      autoplay: {
+        delay: 10000, //10秒切换一次
+      },
     }
   });
    

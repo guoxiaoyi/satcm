@@ -1,31 +1,29 @@
-<h1>Listing group_banners</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Path</th>
-      <th>Link</th>
-      <th>Position</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @group_banners.each do |group_banner| %>
-      <tr>
-        <td><%= group_banner.path %></td>
-        <td><%= group_banner.link %></td>
-        <td><%= group_banner.position %></td>
-        <td><%= link_to 'Show', [:admin, group_banner] %></td>
-        <td><%= link_to 'Edit', edit_admin_group_banner_path(group_banner) %></td>
-        <td><%= link_to 'Destroy', [:admin, group_banner], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Group banner', new_admin_group_banner_path %>
+<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">
+      <%= link_to '新增', new_admin_group_banner_path, class: "btn btn-primary" %>
+    </h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+      <table class="table table-bordered">
+        <tr>
+          <th>图片</th>
+          <th>链接</th>
+          <th>操作</th>
+        </tr>
+        <% @group_banners.each do |group_banner| %>
+          <tr>
+            <td><%= image_tag group_banner.path.url, height: 30 %></td>
+            <td><%= group_banner.link %></td>
+            <td>
+              <%= link_to '编辑', edit_admin_group_banner_path(group_banner) %>
+              <%= link_to '删除', [:admin, group_banner], method: :delete, data: { confirm: '确定删除吗？' } %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
+  <!-- /.card-body --> 
+</div>

@@ -31,6 +31,18 @@ zh-CN:
       link:
         path: 链接
         name: 名称
+      group_banner:
+        path: 图片
+        link: 链接地址
+        position: 位置
+      scientific_banner:
+        path: 图片
+        link: 链接地址
+        position: 位置
+      image_link:
+        path: 图片
+        link: 链接地址
+        position: 位置
       
     errors:
       models:

@@ -1,5 +1,6 @@
 class Admin::GroupBannersController < Admin::ApplicationController
   before_action :set_group_banner, only: [:show, :edit, :update, :destroy]
+  before_action :page_header
 
   # GET /admin/group_banners
   # GET /admin/group_banners.json
@@ -28,7 +29,7 @@ class Admin::GroupBannersController < Admin::ApplicationController
 
     respond_to do |format|
       if @group_banner.save
-        format.html { redirect_to [:admin, @group_banner], notice: 'Group banner was successfully created.' }
+        format.html { redirect_to admin_group_banners_url, notice: 'Group banner was successfully created.' }
         format.json { render action: 'show', status: :created, location: @group_banner }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class Admin::GroupBannersController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @group_banner.update(group_banner_params)
-        format.html { redirect_to [:admin, @group_banner], notice: 'Group banner was successfully updated.' }
+        format.html { redirect_to admin_group_banners_url, notice: 'Group banner was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,5 +71,12 @@ class Admin::GroupBannersController < Admin::ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_banner_params
       params.require(:group_banner).permit(:path, :link, :position)
+    end
+    
+    def page_header
+      @page_header =  [
+        {name: '首页', path: admin_root_path}, 
+        {name: '链接管理', path: admin_group_banners_path, is_current: true}
+      ] 
     end
 end

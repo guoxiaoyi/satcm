@@ -1,3 +1,3 @@
-class ScientificBanner < ApplicationRecord
+class ImageLink < ApplicationRecord
   mount_uploader :path, ArticleUploader
 end
