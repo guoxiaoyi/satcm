@@ -9,7 +9,6 @@ news = ArticleCategory.create({name: '新闻', custom_key: '新闻'})
 group = ArticleCategory.create({name: '组织架构'})
 office_build = ArticleCategory.create({name: "科室建设", custom_key: '科室建设'})
 
-ArticleCategory.create([])
 ArticleCategory.create([
   {name: '党群建设'}, 
   {name: '政策研究'},

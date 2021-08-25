@@ -8,7 +8,7 @@
   .menu-item {
     display: flex;
     height: 40px;
-    background: #810000;
+    background: #b51c21;
     color: #FFF;
     font-size: 16px;
     &+.menu-item{
@@ -30,13 +30,21 @@
 .page-right {
   padding-left: 62px;
   flex: 1;
-  border-left: 1px solid #810000;
+  border-left: 1px solid #b51c21;
+  min-height: 600px;
 }
 
 .article-list {
   margin-bottom: 30px;
   li{
+    width: 667px;
     height: 25px;
+    .flex-item {
+      margin-right: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; 
+    }
     a{
       display: flex;
       color: #666;

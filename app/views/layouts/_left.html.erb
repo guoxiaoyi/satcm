@@ -1,5 +1,14 @@
 <div class="page-left direction-column">
-  <h2 class="group-title"><%= category.name %></h2>
+  <h2 class="group-title">
+    <%= 
+      if category.root.name == '科室建设'
+        link_to category.name, office_path(category.self_and_ancestors.find { |ar| ar.level == 1 }.name)
+      else
+        link_to category.name, category_path(category.root.id)
+      end
+    %>
+    
+  </h2>
   <% category.children.each do |category| %>
     <%= 
       if category.root.name == '科室建设'
