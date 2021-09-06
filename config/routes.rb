@@ -1,6 +1,7 @@
 Rails.application.routes.draw do 
   namespace :admin do
     resource :companies
+    resources :organizations
     resources :image_links
     resources :group_banners
     resources :scientific_banners
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
   resources :categories, only: [:show]
-
+  resources :organizations
   resources :article, only: [:index, :show]
   resources :office, only: [:show]
 end

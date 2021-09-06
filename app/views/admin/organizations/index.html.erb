@@ -1,0 +1,30 @@
+<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">
+        <%= link_to '新增', new_admin_organization_path, class: "btn btn-primary" %>
+      </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+              <th>标题</th>
+              <th></th>
+              </tr>
+          </thead>
+          <tbody>
+          <% @organizations.order(position: :desc).each do |organization| %>
+            <tr>
+              <td><%= organization.title %></td>
+              <td>
+                <%= link_to '编辑', edit_admin_organization_path(organization) %>
+                <%= link_to '删除', [:admin, organization], method: :delete, data: { confirm: '确定删除吗?' } %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

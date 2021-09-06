@@ -1,0 +1,53 @@
+<%= form_for([:admin, @organization]) do |f| %>
+  <%= render 'layouts/admin/errors', _models: @organization %>
+
+  <div class="form-group">
+      <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+    </div>
+  <div class="form-group">
+      <%= f.label :content %>
+    <%= f.text_area :content, :class => "tinymce", :rows => 20, :cols => 60 %>
+    </div>
+  <div class="form-group">
+      <%= f.label :position %>
+    <%= f.number_field :position, class: "form-control" %>
+    </div>
+  <div class="actions">
+    <%= f.submit "提交", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  tinyMCE.init({
+    selector: 'textarea.tinymce',
+    plugins: 'preview fullscreen code image imagetools link lists table textcolor',
+    toolbar: 'formatselect | bold italic strikethrough forecolor backcolor removeformat | link image | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | fullscreen preview',
+    readonly: $('textarea.tinymce').attr('readonly') == 'readonly',
+    language: 'zh_CN',
+    images_upload_handler: function (blobInfo, success, failure) {
+      formData = new FormData();
+      formData.append('image[attachment]', blobInfo.blob(), blobInfo.filename());
+      $.ajax({
+        type: 'POST',
+        url: '/admin/articles/images',
+        dataType: "json",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (data) {
+          console.log(data)
+          if (data.status == 'success') {
+            console.log(data.url)
+            success(data.url);
+          } else {
+            failure(data.msg);
+          }
+        },
+        error: function () {
+          failure('服务器繁忙，请稍后重试！');
+        }
+      });
+    }
+  });
+</script>
