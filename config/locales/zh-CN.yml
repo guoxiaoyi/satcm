@@ -3,6 +3,7 @@ zh-CN:
     models:
       article_category: 文章分类
       setting: 系统配置
+      organization: 组织架构
     attributes:
       article_category:
         name: 名称
@@ -42,6 +43,10 @@ zh-CN:
       image_link:
         path: 图片
         link: 链接地址
+        position: 位置
+      organization:
+        title: 标题
+        content: 内容
         position: 位置
       
     errors:

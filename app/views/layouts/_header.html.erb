@@ -12,15 +12,91 @@
 <div class="nav">
   <ul class="container">
     <li> <%= link_to '首页', root_path %> </li>
-    <% @nav.each do |item| %>
-      <li>
-        <%= link_to item.name, category_path(item) %>
-        <ol>
-          <% item.children.each do |children_item| %>
-            <li><%= link_to children_item.name, category_path(children_item)%></li>
-          <% end %>
-        </ol>
-      </li>
+    <% @nav.where(name: '新闻').each do |item|%>
+    <li>
+      <%= link_to item.name, category_path(item) %>
+      <ol>
+        <% item.children.each do |children_item| %>
+          <li><%= link_to children_item.name, category_path(children_item)%></li>
+        <% end %>
+      </ol>
+    </li>
     <% end %>
+
+    <li>
+      <%= link_to '组织架构', organizations_path %>
+      <ol>
+        <% Organization.all.order(position: :desc).each do |item|%>
+          <li><%= link_to item.title, organizations_path(anchor: item.title) %></li>
+        <% end %>
+      </ol>
+    </li>
+
+    <% @nav.where(name: '党群建设').each do |item|%>
+    <li>
+      <%= link_to item.name, category_path(item) %>
+      <ol>
+        <% item.children.each do |children_item| %>
+          <li><%= link_to children_item.name, category_path(children_item)%></li>
+        <% end %>
+      </ol>
+    </li>
+    <% end %>
+
+    <% @nav.where(name: '政策研究').each do |item|%>
+    <li>
+      <%= link_to item.name, category_path(item) %>
+      <ol>
+        <% item.children.each do |children_item| %>
+          <li><%= link_to children_item.name, category_path(children_item)%></li>
+        <% end %>
+      </ol>
+    </li>
+    <% end %>
+
+    <% @nav.where(name: '通知公告').each do |item|%>
+    <li>
+      <%= link_to item.name, category_path(item) %>
+      <ol>
+        <% item.children.each do |children_item| %>
+          <li><%= link_to children_item.name, category_path(children_item)%></li>
+        <% end %>
+      </ol>
+    </li>
+    <% end %>
+
+    <% @nav.where(name: '技术服务').each do |item|%>
+    <li>
+      <%= link_to item.name, category_path(item) %>
+      <ol>
+        <% item.children.each do |children_item| %>
+          <li><%= link_to children_item.name, category_path(children_item)%></li>
+        <% end %>
+      </ol>
+    </li>
+    <% end %>
+
+    <% @nav.where(name: '信息化').each do |item|%>
+    <li>
+      <%= link_to item.name, category_path(item) %>
+      <ol>
+        <% item.children.each do |children_item| %>
+          <li><%= link_to children_item.name, category_path(children_item)%></li>
+        <% end %>
+      </ol>
+    </li>
+    <% end %>
+
+    <% @nav.where(name: '综合服务').each do |item|%>
+    <li>
+      <%= link_to item.name, category_path(item) %>
+      <ol>
+        <% item.children.each do |children_item| %>
+          <li><%= link_to children_item.name, category_path(children_item)%></li>
+        <% end %>
+      </ol>
+    </li>
+    <% end %>
+
   </ul>
 </div>

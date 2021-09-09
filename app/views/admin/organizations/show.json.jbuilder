@@ -1,0 +1,1 @@
+json.extract! @organization, :title, :content, :position, :created_at, :updated_at

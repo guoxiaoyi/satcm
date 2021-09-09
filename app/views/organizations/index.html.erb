@@ -1,0 +1,23 @@
+<div class="page-left direction-column">
+  <h2 class="group-title link">
+    <%= link_to '组织架构', organizations_path %>
+
+  </h2>
+  <% @organizations.each do |organization| %>
+  <a href="#<%= organization.title %>", class="menu-item"> <%= organization.title %> </a>
+  <% end %>
+</div>
+
+<div class="page-right direction-column">
+  <% @organizations.each do |organization| %>
+
+  <a name="<%= organization.title %>"></a>
+  <h2 class="group-title">
+    <div> <%= organization.title %> </div>
+  </h2>
+  <div class="article-content">
+    <%= raw organization.content %>
+  </div>
+  <% end -%>
+</div>
+

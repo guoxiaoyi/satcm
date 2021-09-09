@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_002947) do
+ActiveRecord::Schema.define(version: 2021_09_06_040658) do
 
-  create_table "article_categories", force: :cascade do |t|
+  create_table "article_categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
     t.integer "lft", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.index ["rgt"], name: "index_article_categories_on_rgt"
   end
 
-  create_table "articles", force: :cascade do |t|
+  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.string "author"
     t.text "content"
@@ -36,11 +36,10 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "brief"
-    t.boolean "published"
     t.datetime "published_at"
   end
 
-  create_table "group_banners", force: :cascade do |t|
+  create_table "group_banners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "path"
     t.string "link"
     t.integer "position"
@@ -48,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "image_links", force: :cascade do |t|
+  create_table "image_links", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "path"
     t.string "link"
     t.integer "position"
@@ -56,13 +55,13 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", force: :cascade do |t|
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "links", force: :cascade do |t|
+  create_table "links", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "path"
     t.string "name"
     t.string "category"
@@ -70,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "navigation_bars", force: :cascade do |t|
+  create_table "navigation_bars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "url"
     t.integer "position"
@@ -78,7 +77,15 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "scientific_banners", force: :cascade do |t|
+  create_table "organizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scientific_banners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "path"
     t.string "link"
     t.integer "position"
@@ -86,7 +93,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "settings", force: :cascade do |t|
+  create_table "settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "logo"
     t.string "tel"
     t.string "address"
@@ -99,7 +106,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "swipers", force: :cascade do |t|
+  create_table "swipers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.string "url"
     t.string "link"
@@ -108,7 +115,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_002947) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
