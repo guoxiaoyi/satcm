@@ -5,9 +5,6 @@
       <h2 class="group-title">
         <div>
           <%= childre_category.name %>
-          <% childre_category.children.each do |item|%>
-            <span> <%= link_to item.name, category_path(item) %> </span>
-          <% end %>
         </div>
       </h2>
       <ul class="article-list">
@@ -25,9 +22,6 @@
     <h2 class="group-title">
       <div>
         <%= @category.name %>
-        <% @category.children.each do |item|%>
-          <span> <%= link_to item.name, category_path(item) %> </span>
-        <% end %>
       </div>
     </h2>
     <ul class="article-list">

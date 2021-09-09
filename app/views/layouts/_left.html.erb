@@ -17,5 +17,10 @@
         link_to category.name, category_path(category), class: "menu-item" 
       end
     %>
+
+    <% category.children.each do |item|%>
+      <span> <%= link_to item.name, category_path(item) %> </span>
+    <% end %>
+
   <% end %>
 </div>
