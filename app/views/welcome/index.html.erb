@@ -18,7 +18,7 @@
       <h2 class="group-title"> 新闻 <%= link_to '更多', category_path(@news) %> </h2>
       <% @articles.each do |article| %>
       <dl>
-        <dt><%= article.title%></dt>
+        <dt> <%= link_to article.title, article_path(article) %> </dt>
         <dd> <%= article.brief %> </dd>
       </dl>
       <% end %>
@@ -136,6 +136,6 @@
       },
     }
   });
-   
+
 </script>
 <% end %>
