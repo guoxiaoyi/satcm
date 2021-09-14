@@ -24,6 +24,37 @@
       border: 6px solid;
       border-color: transparent transparent transparent #FFF;
     }
+    & + span {
+      margin-top: 10px;
+    }
+  }
+  span {
+    display: flex;
+    height: 40px;
+    color: #b51c21;
+    font-size: 16px;
+    align-items: center;
+    position: relative;
+    margin-left: 15px;
+    &+.menu-item{
+      margin-top: 8px;
+    }
+    &:before {
+      margin-right: 10px;
+      display: block;
+      content: '';
+      border: 6px solid;
+      border-color: transparent transparent transparent #b51c21;
+    }
+    a { 
+      color: #b51c21;
+    }
+    & + span {
+      border-top: 1px dashed #b51c21;
+    }
+    & + .menu-item {
+      margin-top: 10px;
+    }
   }
 }
 
