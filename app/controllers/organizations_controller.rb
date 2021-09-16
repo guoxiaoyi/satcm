@@ -9,6 +9,7 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    @organizations = Organization.all
     respond_with(@organization)
   end
 

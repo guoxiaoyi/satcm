@@ -1,19 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="page-left direction-column">
+  <h2 class="group-title link">
+    <%= link_to '组织架构', organizations_path %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @organization.title %>
-</p>
+  </h2>
+  <% @organizations.each do |organization| %>
+   <%= link_to organization.title, organization_path(organization), class: "menu-item"%>
+  <% end %>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @organization.content %>
-</p>
+<div class="page-right direction-column">
 
-<p>
-  <strong>Position:</strong>
-  <%= @organization.position %>
-</p>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+  <h2 class="group-title">
+    <div> <%= @organization.title %> </div>
+  </h2>
+  <div class="article-content">
+    <%= raw @organization.content %>
+  </div>
+</div>
