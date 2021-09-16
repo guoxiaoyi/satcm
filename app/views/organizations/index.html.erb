@@ -4,7 +4,7 @@
 
   </h2>
   <% @organizations.each do |organization| %>
-   <%= link_to organization.title organization_path(organization), class: "menu-item"%>
+   <%= link_to organization.title, organization_path(organization), class: "menu-item"%>
   <% end %>
 </div>
 
