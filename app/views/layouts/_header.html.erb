@@ -12,7 +12,7 @@
 <div class="nav">
   <ul class="container">
     <li> <%= link_to '首页', root_path %> </li>
-    <% @nav.where(custom_key: '综合新闻').each do |item|%>
+    <% @nav.where(custom_key: '新闻').first.children.where(custom_key: '综合新闻').each do |item|%>
     <li>
       <%= link_to item.name, category_path(item) %>
     </li>
