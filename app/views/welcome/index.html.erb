@@ -84,8 +84,8 @@
       <% end %>
     </ul>
     <h2 class="group-title"> 学术研究 </h2>
-    <% ScientificBanner.all.order(position: :desc).each do |banner| %>
-      <%= link_to "/word/#{banner.link}", target: "_blank" do %>
+    <% ScientificBanner.all.where(home_enabled: true).order(position: :desc).each do |banner| %>
+      <%= link_to "#{banner.link}", target: "_blank" do %>
         <%= image_tag banner.path.url, width: '100%' %>
       <% end %>
     <% end %>

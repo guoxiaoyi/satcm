@@ -70,7 +70,7 @@ class Admin::ScientificBannersController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scientific_banner_params
-      params.require(:scientific_banner).permit(:path, :link, :position)
+      params.require(:scientific_banner).permit(:path, :link, :position, :home_enabled, :title)
     end
     def page_header
       @page_header =  [

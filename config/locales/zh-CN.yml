@@ -40,6 +40,8 @@ zh-CN:
         path: 图片
         link: 链接地址
         position: 位置
+        home_enabled: 是否在首页显示
+        title: 标题
       image_link:
         path: 图片
         link: 链接地址

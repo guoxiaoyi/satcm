@@ -1,4 +1,5 @@
 Rails.application.routes.draw do 
+
   namespace :admin do
     resource :companies
     resources :organizations
@@ -33,4 +34,5 @@ Rails.application.routes.draw do
   resources :organizations
   resources :article, only: [:index, :show]
   resources :office, only: [:show]
+  resources :links, only: [:index]
 end

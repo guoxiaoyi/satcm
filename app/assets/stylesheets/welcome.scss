@@ -1,6 +1,9 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+:root{
+  --swiper-pagination-color: #b51c21;
+}
 html, body, h1, h2, h3, h4, h5, h6, span, img, p, ul, li, ol, dl, dt, dd{
   padding: 0;
   margin: 0;
@@ -117,6 +120,7 @@ li {
       font-size: 14px;
       padding-left: 20px;
       box-sizing: border-box;
+      padding-right: 80px;
       p{
         overflow: hidden;
         white-space: nowrap;
@@ -378,4 +382,7 @@ li {
   a {
     color: #FFF;
   }
+}
+.select2-container .select2-selection--single {
+  outline: 0;
 }

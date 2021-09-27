@@ -1,0 +1,19 @@
+<div class="page-left direction-column">
+  <h2 class="group-title link">
+    <%= link_to '学术研究', links_path %>
+
+  </h2>
+</div>
+
+<div class="page-right direction-column">
+  <ul class="article-list">
+      <% ScientificBanner.all.where(home_enabled: false).order(position: :desc).each do |banner| %>
+      <li>
+        <%= link_to "#{banner.link}", target: "_blank" do %>
+          <span class="flex-item"> <%= banner.try(:title) %> </span>
+          <span class="time"> <%= banner.created_at.strftime("%Y-%m-%d %H:%M:%S") %> </span>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+</div>
