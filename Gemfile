@@ -48,6 +48,7 @@ gem 'simple_form'
 
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
+gem 'ransack'
 
 # user login
 gem 'devise'

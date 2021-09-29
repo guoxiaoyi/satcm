@@ -1,4 +1,7 @@
-class ArticleController < ApplicationController
+class ArticlesController < ApplicationController
+  def index
+  end
+
   def show
     @article = Article.find(params[:id])
     if @article.article_category.root.name == '科室建设'

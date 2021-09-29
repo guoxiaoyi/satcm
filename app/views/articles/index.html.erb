@@ -1,0 +1,14 @@
+<div class="page-right direction-column" style="padding-left: 0; border: none">
+  <h2 class="group-title">
+    <div> 搜索结果 </div>
+  </h2>
+  <ul class="article-list search">
+    <% @articles.each do |article|%>
+    <li>
+      <h3> <%= link_to article.title, article_path(article) %></h3>
+      <p> <%= article.brief %></p>
+      <div><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%></div>
+    </li>
+    <% end %>
+  </ul>
+</div>

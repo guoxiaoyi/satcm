@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :categories, only: [:show]
   resources :organizations
-  resources :article, only: [:index, :show]
+  resources :articles, only: [:index, :show]
   resources :office, only: [:show]
   resources :links, only: [:index]
 end

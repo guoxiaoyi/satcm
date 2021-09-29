@@ -9,10 +9,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :nav
   before_action :set_website_config
+  before_action :search
   def nav
     @nav = ArticleCategory.where(is_nav: true)
   end
   def set_website_config
     @setting = Setting.first
+  end
+  def search
+    @q = Article.ransack(params[:q])
+    @articles = @q.result
   end
 end

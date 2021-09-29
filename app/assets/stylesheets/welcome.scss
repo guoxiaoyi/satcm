@@ -33,6 +33,41 @@ div {
     align-items: center;
     justify-content: flex-end;
   }
+  form {
+    width: 250px;
+    height: 30px;
+    border: 1px solid #ebebeb;
+    position: relative;
+    margin-right: 10px;
+    input[type='search'] {
+      width: 180px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      border: none;
+      padding: 0;
+      outline: 0;
+      text-indent: 5px;
+    }
+    input[type='submit'] {
+      width: 70px;
+      height: 32px;
+      position: absolute;
+      right: -1px;
+      border: none;
+      padding: 0;
+      outline: 0;
+      text-indent: 5px;
+      background: #b51c21;
+      border-top: 1px solid #b51c21;
+      border-bottom: 1px solid #b51c21;
+      padding: 0;
+      top: -1px;
+      color: #FFF;
+      cursor: pointer;
+    }
+
+  }
 }
 
 .container {
@@ -151,7 +186,7 @@ li {
   color: #b51c21;
   font-size: 18px;
   line-height: 24px;
-  height: 24px;
+  min-height: 24px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ebebeb;
@@ -169,6 +204,7 @@ li {
     background: #b51c21;
     position: absolute;
     left: 0;
+    top: 0;
   }
   a{
     color: #666666;
