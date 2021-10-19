@@ -11,12 +11,18 @@
   <meta name="description" content="<%= @setting.description %>">
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="body <%= controller_name %>">
+  <% if controller_name == 'welcome' %>
+    <div class="home <%= controller_name %> direction-column">
+  <% end %>
   <%= render 'layouts/header' %>
   <div class="container <%= " direction-column" if controller_name == "welcome"-%> ">
     <%= yield %>
   </div>
   <%= render 'layouts/footer' %>
   <%= yield(:script) %>
+  <% if controller_name == 'welcome' %>
+    </div>
+  <% end %>
 </body>
 </html>
