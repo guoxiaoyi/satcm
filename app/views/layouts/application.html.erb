@@ -19,10 +19,11 @@
   <div class="container <%= " direction-column" if controller_name == "welcome"-%> ">
     <%= yield %>
   </div>
-  <%= render 'layouts/footer' %>
-  <%= yield(:script) %>
   <% if controller_name == 'welcome' %>
     </div>
   <% end %>
+  <%= render 'layouts/footer' %>
+  <%= yield(:script) %>
+
 </body>
 </html>
