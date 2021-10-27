@@ -36,14 +36,20 @@
   <h2 class="group-title"> 科室建设 </h2>
   <div class="department">
     <div class="item-list">
-      <%= link_to '战略<br>规划处'.html_safe, office_path('战略规划处') %>
-      <%= link_to '政策<br>研究处'.html_safe, office_path('政策研究处') %>
-      <%= link_to '项目<br>监管处'.html_safe, office_path('项目监管处') %>
-      <%= link_to '综合<br>统计处'.html_safe, office_path('综合统计处') %>
-      <%= link_to '医疗服务<br>评价处'.html_safe, office_path('医疗服务评价处') %>
-      <%= link_to '信息化<br>建设处'.html_safe, office_path('信息化建设处') %>
-      <%= link_to '健康医疗<br>大数据处'.html_safe, office_path('健康医疗大数据处') %>
-      <%= link_to '专项<br>调查处'.html_safe, office_path('专项调查处') %>
+
+      <% ['战略规划处', '政策研究处', '项目监管处', '综合统计处',
+        '医疗服务评价处', '信息化建设处', '健康医疗大数据处', '专项调查处'].each do |i|
+      %>
+        <%= link_to ArticleCategory(custom_key: i).name.html_safe, office_path(i) %>
+      <% end %>
+
+      <%#= link_to '政策<br>研究处'.html_safe, office_path('政策研究处') %>
+      <%#= link_to '项目<br>监管处'.html_safe, office_path('项目监管处') %>
+      <%#= link_to '综合<br>统计处'.html_safe, office_path('综合统计处') %>
+      <%#= link_to '医疗服务<br>评价处'.html_safe, office_path('医疗服务评价处') %>
+      <%#= link_to '信息化<br>建设处'.html_safe, office_path('信息化建设处') %>
+      <%#= link_to '健康医疗<br>大数据处'.html_safe, office_path('健康医疗大数据处') %>
+      <%#= link_to '专项<br>调查处'.html_safe, office_path('专项调查处') %>
     </div>
     <%
       office_build_articles = Article.where(article_category_id: ArticleCategory.find_by(name: '科室建设').descendants.pluck(:id)).order(created_at: :desc)
