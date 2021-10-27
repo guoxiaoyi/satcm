@@ -40,7 +40,7 @@
       <% ['战略规划处', '政策研究处', '项目监管处', '综合统计处',
         '医疗服务评价处', '信息化建设处', '健康医疗大数据处', '专项调查处'].each do |i|
       %>
-        <%= link_to ArticleCategory(custom_key: i).name.html_safe, office_path(i) %>
+        <%= link_to ArticleCategory.find_by(custom_key: i).name.html_safe, office_path(i) %>
       <% end %>
 
       <%#= link_to '政策<br>研究处'.html_safe, office_path('政策研究处') %>
