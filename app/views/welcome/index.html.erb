@@ -41,7 +41,7 @@
 
         ArticleCategory.where(custom_key: keys).each do |category|
       %>
-        <%= link_to category.name.html_safe, office_path(i) %>
+        <%= link_to category.name.html_safe, office_path(category) %>
       <% end %>
 
       <%#= link_to '政策<br>研究处'.html_safe, office_path('政策研究处') %>
