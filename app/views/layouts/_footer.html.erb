@@ -1,12 +1,6 @@
 <div class="footer direction-column">
   <div class="container" style="justify-content: space-between;">
     <div>
-      <div class="contact direction-column" style="justify-content: center; ">
-        <h6>联系我们</h6>
-        <p>地址: <%= @setting.address %></p>
-        <p>电话: <%= @setting.tel %></p>
-        <p>联系邮箱: jctjzx2021@126.com</p>
-      </div>
       <div class="links direction-column">
         <h6>兄弟单位</h6>
         <div style="display: block">
@@ -32,9 +26,18 @@
       <%= image_tag @setting.qrcode.url, width: 70 %>
       <p>官方微信</p>
     </div>
-
   </div>
-  <div style="margin: 30px 0 0; align-items: center; justify-content: center; "> 版权信息 京ICP备2021031206号 </div>
+  <div class="container" style="margin-top: 30px; align-items: center;">
+
+    <script type="text/javascript">
+      document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/33/000/0000/61004235/CA330000000610042350003.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <div class="direction-column">
+      <p>地址: <%= @setting.address %> 电话: <%= @setting.tel %>联系邮箱: jctjzx2021@126.com</p>
+      <p style="margin-top:5px">Copyright 国家中医药管理局监测统计中心 All Rights Reserved </p>
+      <p style="margin-top:5px">京ICP备2021031206号</p>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -43,4 +46,4 @@
     window.open(data.id)
     })
 </script>
-<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/33/000/0000/61004235/CA330000000610042350003.js' type='text/javascript'%3E%3C/script%3E"));</script>
+
