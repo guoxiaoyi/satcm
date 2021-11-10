@@ -37,8 +37,7 @@
   <div class="department">
     <div class="item-list">
 
-      <% keys = ['信息化建设处', '医疗服务评价处', '健康医疗大数据处', '专项调查处', '项目监管处']
-        ArticleCategory.where(custom_key: keys).order("FIELD(custom_key, '战略规划处', '政策研究处', '综合统计处', '信息化建设处', '医疗服务评价处', '健康医疗大数据处', '专项调查处', '项目监管处')").each do |category|
+      <% ArticleCategory.where(custom_key: '科室建设').first.children.order("FIELD(custom_key, '战略规划处', '政策研究处', '综合统计处', '信息化建设处', '医疗服务评价处', '健康医疗大数据处', '专项调查处', '项目监管处')").each do |category|
       %>
         <%= link_to category.name.html_safe, office_path(category.custom_key) %>
       <% end %>
