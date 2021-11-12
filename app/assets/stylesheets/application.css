@@ -15,5 +15,6 @@
  *= require office
  *= require swiper-bundle.min
  *= require welcome
+ *= require select2.min
  *= require_self
  */

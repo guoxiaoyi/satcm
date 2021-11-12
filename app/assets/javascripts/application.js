@@ -12,4 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery.min
+//= require select2.min
 //= require swiper-bundle.min
