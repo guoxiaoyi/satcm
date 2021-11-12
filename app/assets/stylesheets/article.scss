@@ -63,6 +63,10 @@
   flex: 1;
   border-left: 1px solid #b51c21;
   min-height: 600px;
+  .group-title {
+    font-size: 22px;
+    font-family: '方正小标宋简体';
+  }
 }
 
 .article-list {
