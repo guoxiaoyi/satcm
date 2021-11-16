@@ -15,12 +15,23 @@
 
   <div class="direction-column flex-item" style="margin-left: 40px;">
     <div class="news-loop direction-column">
-      <h2 class="group-title"> 新闻 <%= link_to '更多', category_path(@news) %> </h2>
-      <% @articles.each do |article| %>
-      <dl>
-        <dt> <%= link_to article.title, article_path(article) %> </dt>
-        <dd> <%= article.brief %> </dd>
-      </dl>
+      <h2 class="group-title">
+        <div class="hover-cateory">
+          <% @news.descendants.each_with_index do |c,index| %>
+            <span class="<%= 'current' if index == 0 %>" style="cursor: pointer;"><%= c.name %></span>
+          <% end %>
+        </div>
+        <%= link_to '更多', category_path(@news) %>
+      </h2>
+      <% @news.descendants.each_with_index do |c,index| %>
+      <div class="news-list" style="<%= 'display: none;' if index != 0 %>">
+        <% Article.where(article_category_id: c.id).limit(3).order(created_at: :desc).each do |article| %>
+        <dl>
+          <dt> <%= link_to article.title, article_path(article) %> </dt>
+          <dd> <%= article.brief %> </dd>
+        </dl>
+        <% end %>
+      </div>
       <% end %>
     </div>
     <div class="center direction-column">
@@ -133,6 +144,13 @@
       },
     }
   });
-
+  $(document).ready(function() {
+    $(".hover-cateory span").click(function() {
+      $(".news-list").hide();
+      $(".news-list").eq($(this).index()).show()
+      $(this).addClass('current').siblings('span').removeClass("current")
+    })
+  });
 </script>
 <% end %>
+

@@ -433,3 +433,11 @@ li {
 .select2-container .select2-selection--single {
   outline: 0;
 }
+.hover-cateory {
+  span {
+    color: #999;
+    &.current {
+      color: #b51c21;
+    }
+  }
+}
