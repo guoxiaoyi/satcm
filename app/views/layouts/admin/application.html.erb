@@ -79,6 +79,12 @@
             <% end %>
           </li>
 
+          <li class="nav-item">
+            <%= link_to edit_admin_article_path(ArticleCategory.find_by(name: '中心简介').articles.first), class: "custom-nav nav-link", data: {current: ""} do %>
+              <p> 中心简介 </p>
+            <% end %>
+          </li>
+
           <% ArticleCategory.roots.where.not(name: "中心简介").each do |category|%>
           <li class="nav-item">
             <%= link_to admin_articles_path, class: "custom-nav nav-link", data: {current: ""} do %>
