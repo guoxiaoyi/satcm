@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_27_144446) do
+ActiveRecord::Schema.define(version: 2021_11_23_021021) do
 
   create_table "article_categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_09_27_144446) do
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.string "author"
-    t.text "content"
+    t.text "content", limit: 4294967295
     t.integer "article_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
