@@ -1,8 +1,8 @@
-<%= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
+<%#= render 'shared/admin/page_header', current_page: '导航列表', pages: @page_header %>
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">
-      <%= link_to '后退', admin_articles_path(article_category_id: @article.article_category.self_and_ancestors.find { |ar| ar.level == 1 }.id), class: "btn btn-default" %>
+      <%#= link_to '后退', admin_articles_path(article_category_id: @article.article_category.self_and_ancestors.find { |ar| ar.level == 1 }.id), class: "btn btn-default" %>
     </h3>
   </div>
   <!-- /.card-header -->

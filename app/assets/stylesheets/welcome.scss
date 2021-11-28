@@ -274,21 +274,17 @@ li {
     width: 348px;
     height: 174px;
     flex-wrap: wrap;
+    justify-content: space-between;
     a{
-      flex: 87px;
-      height: 50%;
-      background: #b51c21;
+      flex: 0 0 48%;
+      height: 38px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFF;
       box-sizing: border-box;
-      &:nth-child(2),
-      &:nth-child(4),
-      &:nth-child(5),
-      &:nth-child(7) {
-        background: #C16666;
-      }
+      background: asset-url('product.png') no-repeat center center #af0e17;
+      background-size: contain;
     }
   }
   .item-news {
