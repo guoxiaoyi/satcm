@@ -135,21 +135,22 @@
 </div>
 <%= content_for :script do %>
 <script type="text/javascript">
-  var swiper = new Swiper('.news-swiper',{
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      autoplay: {
-        delay: 10000, //10秒切换一次
-      },
-    }
-  });
+
   $(document).ready(function() {
     $(".hover-cateory span").click(function() {
       $(".news-list").hide();
       $(".news-list").eq($(this).index()).css('display','flex')
       $(this).addClass('current').siblings('span').removeClass("current")
     })
+    var swiper = new Swiper('.news-swiper',{
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        autoplay: {
+          delay: 10000, //10秒切换一次
+        },
+      }
+    });
   });
 </script>
 <% end %>
