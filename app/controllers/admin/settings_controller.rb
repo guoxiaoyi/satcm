@@ -63,7 +63,7 @@ class Admin::SettingsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def setting_params
-      params.require(:setting).permit(:logo, :tel, :address, :qrcode, :oa_path, :title, :description, :keywords)
+      params.require(:setting).permit(:logo, :tel, :address, :qrcode, :oa_path, :title, :description, :keywords, :icp, :email)
     end
 
     def page_header
