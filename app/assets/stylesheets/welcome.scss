@@ -274,6 +274,10 @@ li {
     width: 348px;
     // height: 174px;
     flex-direction: column;
+    li {
+      padding-bottom: 5px;
+      border-bottom: 1px solid #E5E5E5;
+    }
     a{
       height: 42px;
       display: flex;
