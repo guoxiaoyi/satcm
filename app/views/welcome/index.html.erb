@@ -69,7 +69,10 @@
     <ul class="item-link direction-column">
       <% office_build_articles.offset(2).limit(9).each do |article| %>
       <li>
-        <%= link_to truncate("[#{article.article_category.name}] #{article.title}", length: 26), article_path(article) %>
+        <%= link_to article_path(article) do %>
+          <p><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") -%></p>
+          <%= truncate("[#{article.article_category.name}] #{article.title}", length: 26) %>
+        <% end %>
       </li>
       <% end %>
     </ul>
