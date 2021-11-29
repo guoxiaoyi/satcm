@@ -274,10 +274,6 @@ li {
     width: 348px;
     // height: 174px;
     flex-direction: column;
-    li {
-      padding-bottom: 5px;
-      border-bottom: 1px solid #E5E5E5;
-    }
     a{
       height: 42px;
       display: flex;
@@ -325,6 +321,8 @@ li {
     width: 325px;
     height: 174px;
     li{
+      padding-bottom: 5px;
+      border-bottom: 1px solid #E5E5E5;
       a {
         display: block;
         color: #666666;
