@@ -27,8 +27,11 @@
       <div class="direction-column news-list" style="<%= 'display: none;' if index != 0 %>">
         <% Article.where(article_category_id: c.id).limit(3).order(created_at: :desc).each do |article| %>
         <dl>
-          <dt> <%= link_to article.title, article_path(article) %> </dt>
-          <dd> <%= article.brief %> </dd>
+          <dt>
+            <%= link_to article_path(article) do %>
+              <%= article.title %> <%= article.created_at.strftime("%Y-%m-%d")%>
+            <% end %>
+          </dt>
         </dl>
         <% end %>
       </div>
