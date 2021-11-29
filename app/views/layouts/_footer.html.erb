@@ -5,6 +5,7 @@
         <h6>兄弟单位</h6>
         <div style="display: block">
           <select class="select2" style="width: 100%">
+            <option value="disabled">兄弟单位</option>
             <% Link.where(category: 'brother').each do |l| %>
               <option value="<%= l.path %>"> <%= l.name %> </option>
             <% end %>
@@ -15,6 +16,7 @@
         <h6>友情连接</h6>
         <div style="display: block">
           <select class="select2" style="width: 100%">
+            <option value="disabled">友情连接</option>
             <% Link.where(category: 'friend').each do |l| %>
               <option value="<%= l.path %>"> <%= l.name %> </option>
             <% end %>
@@ -49,7 +51,9 @@
 <script type="text/javascript">
   $(".select2").select2().on('select2:select', function(e) {
     var data = e.params.data;
-    window.open(data.id)
-    })
+    if(data.id !=  'disabled') {
+      window.open(data.id)
+    }
+  })
 </script>
 
