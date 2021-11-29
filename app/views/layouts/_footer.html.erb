@@ -33,8 +33,8 @@
       document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='https://dcs.conac.cn/js/33/000/0000/61004235/CA330000000610042350003.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
     <div class="direction-column">
-      <p>地址: <%= @setting.address %> &nbsp;电话: <%= @setting.tel %> &nbsp;联系邮箱: jctjzx2021@126.com</p>
-      <p style="margin-top:5px">Copyright 国家中医药管理局监测统计中心 All Rights Reserved </p>
+      <p>地址: <%= @setting.address %> &nbsp;电话: <%= @setting.tel %> &nbsp;联系邮箱: <%= @setting.email%></p>
+      <p style="margin-top:5px">Copyright 国家中医药管理局监测统计中心 All Rights Reserved  京ICP备 <%= @setting.icp %></p>
     </div>
   </div>
   <div style="width:300px;margin:0 auto; padding:20px 0;">
