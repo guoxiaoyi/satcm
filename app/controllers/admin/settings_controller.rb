@@ -1,6 +1,6 @@
 class Admin::SettingsController < Admin::ApplicationController
-  before_action :set_setting, only: [:show, :edit, :update, :destroy]
-  before_action :page_header
+  before_action :set_setting, only: [:show, :edit, :update, :destroy, :clear_home_bg]
+  before_action :page_header, except: [:clear_home_bg]
 
   # GET /admin/settings
   # GET /admin/settings.json
@@ -39,6 +39,11 @@ class Admin::SettingsController < Admin::ApplicationController
     end
   end
 
+  def clear_home_bg
+    @setting.update(home_bg: nil)
+    redirect_to edit_admin_setting_path(@setting.id)
+  end
+
   # PATCH/PUT /admin/settings/1
   # PATCH/PUT /admin/settings/1.json
   def update
@@ -63,7 +68,7 @@ class Admin::SettingsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def setting_params
-      params.require(:setting).permit(:logo, :tel, :address, :qrcode, :oa_path, :title, :description, :keywords, :icp, :email)
+      params.require(:setting).permit(:logo, :tel, :address, :qrcode, :oa_path, :title, :description, :keywords, :icp, :email, :home_bg)
     end
 
     def page_header

@@ -29,6 +29,7 @@ zh-CN:
         address: 地址
         qrcode: 二维码
         oa_path: OA系统地址
+        home_bg: 首页背景
       link:
         path: 链接
         name: 名称

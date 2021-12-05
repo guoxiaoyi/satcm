@@ -11193,7 +11193,7 @@ body,
     height: calc(100vh - (3.5rem + 1px));
   }
   .layout-fixed.text-sm .wrapper .sidebar {
-    height: calc(100vh - (2.93725rem + 1px));
+    height: calc(100vh - (3.93725rem + 1px));
   }
 }
 

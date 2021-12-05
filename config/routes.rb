@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :image_links
     resources :group_banners
     resources :scientific_banners
-    resources :settings
+    resources :settings do
+      collection do
+        post :clear_home_bg
+      end
+    end
     resources :links
     resources :articles do
       collection do

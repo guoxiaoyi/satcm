@@ -7,16 +7,25 @@
   <meta name="Keywords" content="<%= @setting.keywords %>">
   <meta name="description" content="<%= @setting.description %>">
   <%= csrf_meta_tags %>
+  <% unless @setting.home_bg.blank? %>
+    <style type="text/css">
+      body.body.welcome {
+        background: url("<%= @setting.home_bg.url %>") no-repeat center top;
+        background-size:  contain;
+        padding-top: 210px;
+      }
+    </style>
+  <% end %>
 </head>
 <body class="body <%= controller_name %>">
-  <% if controller_name == 'welcome' %>
+  <% if controller_name == 'welcome' &&  !@setting.home_bg.blank? %>
     <div class="home <%= controller_name %> direction-column">
   <% end %>
   <%= render 'layouts/header' %>
   <div class="container <%= " direction-column" if controller_name == "welcome"-%> ">
     <%= yield %>
   </div>
-  <% if controller_name == 'welcome' %>
+  <% if controller_name == 'welcome' &&  !@setting.home_bg.blank? %>
     </div>
   <% end %>
   <%= render 'layouts/footer' %>
