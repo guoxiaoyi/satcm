@@ -1,7 +1,34 @@
+<% if Swiper.where(category: 'big').present? %>
+<div style="width: 100%; height: 542px; margin-bottom: 20px; position: relative;">
+  <div
+    style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+    class="swiper mySwiper2"
+  >
+    <div class="swiper-wrapper">
+      <% Swiper.where(category: 'big').order(position: :desc).each do |swiper| %>
+      <div class="swiper-slide">
+        <%= link_to swiper.link do %>
+          <%= image_tag swiper.url.url %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div thumbsSlider="" class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <% Swiper.where(category: 'big').order(position: :desc).each do |swiper| %>
+      <div class="swiper-slide">
+        <%= swiper.title %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
 <div class="direction-row">
   <div class="news-swiper">
     <div class="swiper-wrapper">
-      <% Swiper.order(position: :desc).each do |swiper| %>
+      <% Swiper.where(category: ['', 'small']).order(position: :desc).each do |swiper| %>
       <div class="swiper-slide">
         <%= link_to swiper.link do %>
           <%= image_tag swiper.url.url %>
@@ -148,7 +175,7 @@
       $(".news-list").eq($(this).index()).css('display','flex')
       $(this).addClass('current').siblings('span').removeClass("current")
     })
-    var swiper = new Swiper('.news-swiper',{
+    new Swiper('.news-swiper',{
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -157,7 +184,60 @@
         delay: 10000, //10秒切换一次
       },
     });
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      direction : 'vertical',
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
   });
 </script>
 <% end %>
+<style>
+  .mySwiper2 {
+    width:  100%;
+    height: 542px;
+    overflow: hidden;
+  }
+  .mySwiper {
+    background: rgba(0, 0, 0, 0.4);
+    width: 40%;
+    height:  542px;
+    box-sizing: border-box;
+    padding: 10px 0;
+    overflow: hidden;
+    position: absolute;
+    right:  0;
+    top:  0;
+    z-index: 10;
+  }
 
+  .mySwiper .swiper-slide {
+    width: 95%;
+    color: #FFF;
+    padding: 10px 10px;
+    box-sizing: border-box;
+  }
+
+  .mySwiper .swiper-slide-thumb-active {
+   background-image: linear-gradient(to right, rgba(191, 6, 20, 1) 0% , rgba(191, 6, 20, 0) 100%);
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

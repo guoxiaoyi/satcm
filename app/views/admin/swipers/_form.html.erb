@@ -13,6 +13,11 @@
     <%= f.text_field :position, class: 'form-control'  %>
   </div>
   <div class="form-group">
+    <%= f.label :category %>
+    <%#= f.select :category, class: 'form-control'  %>
+    <%= f.select :category, [['', ''], ['大图', 'big'], ['小图', 'small']], {}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
     <%= f.label :link %>
     <%= f.text_field :link, class: 'form-control'  %>
   </div>

@@ -20,6 +20,7 @@ zh-CN:
         url: 图片
         link: 网址
         position: 位置
+        category: 类型
       setting:
         title: 网站标题
         description: 描述

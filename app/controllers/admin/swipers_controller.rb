@@ -70,7 +70,7 @@ class Admin::SwipersController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def swiper_params
-      params.require(:swiper).permit(:title, :url, :position, :link)
+      params.require(:swiper).permit(:title, :url, :position, :link, :category)
     end
 
     def page_header
