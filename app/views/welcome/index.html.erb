@@ -186,10 +186,13 @@
     });
     var swiper = new Swiper(".mySwiper", {
       spaceBetween: 10,
-      slidesPerView: 4,
+      slidesPerView: 6,
       freeMode: true,
       direction : 'vertical',
       watchSlidesProgress: true,
+      autoplay: {
+        delay: 2000, //10秒切换一次
+      }
     });
     var swiper2 = new Swiper(".mySwiper2", {
       spaceBetween: 10,
@@ -200,6 +203,9 @@
       thumbs: {
         swiper: swiper,
       },
+      autoplay: {
+        delay: 2000, //10秒切换一次
+      }
     });
   });
 </script>
@@ -228,8 +234,13 @@
     color: #FFF;
     padding: 10px 10px;
     box-sizing: border-box;
+    line-height: 1.5;
   }
-
+  .mySwiper .swiper-slide:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to right, rgba(191, 6, 20, 1) 0% , rgba(191, 6, 20, 0) 100%);
+    font-weight: bold;
+  }
   .mySwiper .swiper-slide-thumb-active {
    background-image: linear-gradient(to right, rgba(191, 6, 20, 1) 0% , rgba(191, 6, 20, 0) 100%);
   }
