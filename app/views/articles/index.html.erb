@@ -7,7 +7,7 @@
     <li>
       <h3> <%= link_to article.title, article_path(article) %></h3>
       <p> <%= article.brief %></p>
-      <div><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S")%></div>
+      <div><%= article.created_at.strftime("%Y-%m-%d")%></div>
     </li>
     <% end %>
   </ul>

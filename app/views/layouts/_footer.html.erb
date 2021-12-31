@@ -25,7 +25,7 @@
       </div>
     </div>
     <div style="display: block; text-align: center ;">
-      <%= image_tag @setting.qrcode.url, width: 70 %>
+      <%= image_tag @setting.qrcode.url, width: 100 %>
       <p>官方微信</p>
     </div>
   </div>
@@ -36,13 +36,14 @@
     </script>
     <div class="direction-column">
       <p>地址: <%= @setting.address %> &nbsp;电话: <%= @setting.tel %> &nbsp;联系邮箱: <%= @setting.email%></p>
-      <p style="margin-top:5px">Copyright 国家中医药管理局监测统计中心 All Rights Reserved  京ICP备 <%= @setting.icp %></p>
+      <p style="margin-top:5px">Copyright 国家中医药管理局监测统计中心 All Rights Reserved  京ICP备 <a href="https://beian.miit.gov.cn/
+"><%= @setting.icp %></a></p>
     </div>
   </div>
   <div style="width:300px;margin:0 auto; padding:20px 0;">
     <a target="_blank" href=" " style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
         <%= image_tag 'ba.jpg', style: "float:left"%>
-      <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px;">京公网安备 11010502047684号</p >
+      <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px;">京公网安备 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502047684">11010502047684号</a></p >
     </a >
   </div>
 
