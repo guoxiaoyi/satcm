@@ -78,9 +78,13 @@
   <div class="department">
     <div class="item-list">
 
-      <% ArticleCategory.where(custom_key: '科室建设').first.children.order("FIELD(custom_key, '战略规划处', '政策研究处', '综合统计处', '信息化建设处', '医疗服务评价处', '健康医疗大数据处', '专项调查处', '项目监管处')").each do |category|
+      <%
+        keys = ["战略规划处", "政策研究处", "综合统计处", "信息化建设处", "医疗服务评价处", "健康医疗大数据处", "专项调查处", "项目监管处"]
+        keys.map{|name| ArticleCategory.find_by(custom_key: name)}.each do |category|
       %>
-        <%= link_to category.name.html_safe, office_path(category.id) %>
+        <% unless category.nil? %>
+          <%= link_to category.name.html_safe, office_path(category.id) %>
+        <% end %>
       <% end %>
     </div>
     <%
