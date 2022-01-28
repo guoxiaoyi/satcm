@@ -93,10 +93,7 @@
     <div class="item-news direction-column">
       <% office_build_articles.limit(3).each do |article|%>
         <%= link_to article_path(article) do %>
-          <p><%= article.title %></p>
-          <span>
-            <%= article.brief %>
-          </span>
+          <p style="display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"><%= article.title %></p>
         <% end %>
       <% end %>
     </div>
