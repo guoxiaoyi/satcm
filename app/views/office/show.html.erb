@@ -31,7 +31,7 @@
     </div>
   </h2>
   <ul class="article-list">
-    <% @category.articles.each do |article|%>
+    <% @category.articles.order(created_at: :desc).each do |article|%>
     <li>
       <%= link_to article_path(article) do %>
       <span class="flex-item"> <%= article.title %> </span>
