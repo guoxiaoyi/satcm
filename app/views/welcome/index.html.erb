@@ -124,7 +124,7 @@
         group_article = Article.where(article_category_id: ArticleCategory.find_by(name: '党群建设').descendants.pluck(:id)).order(created_at: :desc)
       %>
       <% group_article.limit(8).each do |article| %>
-        <li><%= link_to truncate(article.title, length: 24), article_path(article) %></li>
+        <li><%= link_to truncate(article.title, length: 20), article_path(article) %></li>
       <% end %>
     </ul>
     <h2 class="group-title"> 学术研究 </h2>
