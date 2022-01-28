@@ -9,7 +9,7 @@
 </div>
 
 <div class="page-right direction-column">
-  <% @organizations.each do |organization| %>
+  <% @organizations.order(created_at: :desc).each do |organization| %>
 
   <a name="<%= organization.title %>"></a>
   <h2 class="group-title">
