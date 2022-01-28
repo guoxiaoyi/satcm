@@ -11,7 +11,7 @@
       </div>
     </h2>
     <ul class="article-list">
-      <% childre_category.articles.limit(10).each do |article|%>
+      <% childre_category.articles.order(created_at: :desc).limit(10).each do |article|%>
       <li>
         <%= link_to article_path(article) do %>
         <span class="flex-item"> <%= article.title %> </span>
