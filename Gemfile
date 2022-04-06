@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.6'
 gem 'sqlite3'
 gem 'mysql2'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 4.3', '>= 4.3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -70,7 +70,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'capistrano',         require: false
+  # gem 'capistrano',         require: false
   # gem 'capistrano3-puma',   require: false
   # gem 'capistrano-bundler', require: false
   # gem 'capistrano-rails',   require: false
