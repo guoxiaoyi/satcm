@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# gem ' istrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -71,10 +71,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'capistrano',         require: false
-  gem 'capistrano3-puma',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-rvm',     require: false
+  # gem 'capistrano3-puma',   require: false
+  # gem 'capistrano-bundler', require: false
+  # gem 'capistrano-rails',   require: false
+  # gem 'capistrano-rvm',     require: false
 end
 
 group :test do
