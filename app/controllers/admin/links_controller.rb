@@ -25,7 +25,7 @@ class Admin::LinksController < Admin::ApplicationController
   # POST /admin/links.json
   def create
     @link = Link.new(link_params)
-
+    Log.create(title: "添加 #{@link.category == 'friend' ? '友情链接' : '兄弟链接'}", user: current_user, desc: @link.name )
     respond_to do |format|
       if @link.save
         format.html { redirect_to admin_links_path(category: @link.category), notice: 'Link was successfully created.' }
@@ -42,6 +42,7 @@ class Admin::LinksController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
+        Log.create!(title: "更新 #{@link.category == 'friend' ? '友情链接' : '兄弟链接'}", user: current_user, desc: @link.name )
         format.html { redirect_to admin_links_path(category: @link.category), notice: 'Link was successfully updated.' }
         format.json { head :no_content }
       else
@@ -56,6 +57,7 @@ class Admin::LinksController < Admin::ApplicationController
   def destroy
     @link.destroy
     respond_to do |format|
+      Log.create(title: "删除 #{@link.category == 'friend' ? '友情链接' : '兄弟链接'}", user: current_user, desc: @link.name )
       format.html { redirect_to admin_links_path(category: @link.category), notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
     end

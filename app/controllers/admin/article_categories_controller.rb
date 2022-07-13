@@ -33,6 +33,7 @@ class Admin::ArticleCategoriesController < Admin::ApplicationController
 
     respond_to do |format|
       if @article_category.save
+        Log.create(title: "添加 #{@article_category.name} 分类", user: current_user)
         format.html { redirect_to [:admin, @article_category], notice: 'Article category was successfully created.' }
         format.json { render action: 'show', status: :created, location: @article_category }
       else
@@ -47,6 +48,7 @@ class Admin::ArticleCategoriesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @article_category.update(article_category_params)
+        Log.create(title: "更新 #{@article_category.name} 分类", user: current_user)
         format.html { redirect_to [:admin, @article_category], notice: 'Article category was successfully updated.' }
         format.json { head :no_content }
       else
@@ -60,6 +62,7 @@ class Admin::ArticleCategoriesController < Admin::ApplicationController
   # DELETE /admin/article_categories/1.json
   def destroy
     @article_category.destroy
+    Log.create(title: "删除 #{@article_category.name} 分类", user: current_user)
     respond_to do |format|
       format.html { redirect_to admin_article_categories_url, notice: 'Article category was successfully destroyed.' }
       format.json { head :no_content }

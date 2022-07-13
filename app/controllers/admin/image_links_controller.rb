@@ -26,7 +26,7 @@ class Admin::ImageLinksController < Admin::ApplicationController
   # POST /admin/image_links.json
   def create
     @image_link = ImageLink.new(image_link_params)
-
+    Log.create(title: "添加数据平台", user: current_user, desc: @image_link.link )
     respond_to do |format|
       if @image_link.save
         format.html { redirect_to admin_image_links_url, notice: 'Image link was successfully created.' }
@@ -43,6 +43,7 @@ class Admin::ImageLinksController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @image_link.update(image_link_params)
+        Log.create(title: "更新数据平台", user: current_user, desc: @image_link.link )
         format.html { redirect_to admin_image_links_url, notice: 'Image link was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,6 +58,7 @@ class Admin::ImageLinksController < Admin::ApplicationController
   def destroy
     @image_link.destroy
     respond_to do |format|
+      Log.create(title: "删除数据平台", user: current_user, desc: @image_link.link )
       format.html { redirect_to admin_image_links_url, notice: 'Image link was successfully destroyed.' }
       format.json { head :no_content }
     end

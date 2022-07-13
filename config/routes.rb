@@ -1,6 +1,8 @@
 Rails.application.routes.draw do 
 
   namespace :admin do
+    resources :accounts
+    resources :logs
     resource :companies
     resources :organizations
     resources :image_links
@@ -27,7 +29,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

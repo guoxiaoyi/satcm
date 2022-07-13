@@ -52,7 +52,11 @@ zh-CN:
         title: 标题
         content: 内容
         position: 位置
-      
+      user:
+        current_password: 原密码
+        password: 密码
+        password_confirmation: 确认密码
+        email: 邮箱
     errors:
       models:
         article_category:
@@ -76,3 +80,14 @@ zh-CN:
               blank: 不能为空
             article_category_id:
               blank: 不能为空
+        user:
+          attributes:
+            current_password:
+              blank: 不能为空
+              invalid: 原密码错误
+            password:
+              too_short: 太短
+              blank: 不能为空
+            email:
+              blank: 不能为空
+              taken: 重复

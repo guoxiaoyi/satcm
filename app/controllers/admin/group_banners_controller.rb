@@ -29,6 +29,7 @@ class Admin::GroupBannersController < Admin::ApplicationController
 
     respond_to do |format|
       if @group_banner.save
+        Log.create(title: "创建党群建设图片链接", user: current_user, desc: @group_banner.link )
         format.html { redirect_to admin_group_banners_url, notice: 'Group banner was successfully created.' }
         format.json { render action: 'show', status: :created, location: @group_banner }
       else
@@ -43,6 +44,7 @@ class Admin::GroupBannersController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @group_banner.update(group_banner_params)
+        Log.create(title: "修改党群建设图片链接", user: current_user, desc: @group_banner.link )
         format.html { redirect_to admin_group_banners_url, notice: 'Group banner was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,6 +59,7 @@ class Admin::GroupBannersController < Admin::ApplicationController
   def destroy
     @group_banner.destroy
     respond_to do |format|
+      Log.create(title: "删除党群建设图片链接", user: current_user, desc: @group_banner.link )
       format.html { redirect_to admin_group_banners_url, notice: 'Group banner was successfully destroyed.' }
       format.json { head :no_content }
     end

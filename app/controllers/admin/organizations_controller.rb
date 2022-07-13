@@ -26,7 +26,7 @@ class Admin::OrganizationsController < Admin::ApplicationController
   # POST /admin/organizations.json
   def create
     @organization = Organization.new(organization_params)
-
+    Log.create(title: "创建组织架构", user: current_user, desc: @organization.content )
     respond_to do |format|
       if @organization.save
         format.html { redirect_to [:admin, @organization], notice: 'Organization was successfully created.' }
@@ -43,6 +43,7 @@ class Admin::OrganizationsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @organization.update(organization_params)
+        Log.create(title: "更新组织架构", user: current_user, desc: @organization.content )
         format.html { redirect_to [:admin, @organization], notice: 'Organization was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,6 +58,7 @@ class Admin::OrganizationsController < Admin::ApplicationController
   def destroy
     @organization.destroy
     respond_to do |format|
+      Log.create(title: "删除组织架构", user: current_user, desc: @organization.content )
       format.html { redirect_to admin_organizations_url, notice: 'Organization was successfully destroyed.' }
       format.json { head :no_content }
     end

@@ -29,6 +29,7 @@ class Admin::ScientificBannersController < Admin::ApplicationController
 
     respond_to do |format|
       if @scientific_banner.save
+        Log.create(title: "创建学术研究图片链接", user: current_user, desc: @scientific_banner.link )
         format.html { redirect_to admin_scientific_banners_url, notice: 'Scientific banner was successfully created.' }
         format.json { render action: 'show', status: :created, location: @scientific_banner }
       else
@@ -43,6 +44,7 @@ class Admin::ScientificBannersController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @scientific_banner.update(scientific_banner_params)
+        Log.create(title: "更新学术研究图片链接", user: current_user, desc: @scientific_banner.link )
         format.html { redirect_to admin_scientific_banners_url, notice: 'Scientific banner was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,6 +59,7 @@ class Admin::ScientificBannersController < Admin::ApplicationController
   def destroy
     @scientific_banner.destroy
     respond_to do |format|
+      Log.create(title: "删除学术研究图片链接", user: current_user, desc: @scientific_banner.link )
       format.html { redirect_to admin_scientific_banners_url, notice: 'Scientific banner was successfully destroyed.' }
       format.json { head :no_content }
     end

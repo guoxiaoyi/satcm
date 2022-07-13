@@ -29,6 +29,7 @@ class Admin::SwipersController < Admin::ApplicationController
 
     respond_to do |format|
       if @swiper.save
+        Log.create(title: "添加轮播", user: current_user, desc: @swiper.title)
         format.html { redirect_to admin_swipers_path, notice: 'Swiper was successfully created.' }
         format.json { render action: 'show', status: :created, location: @swiper }
       else
@@ -43,6 +44,7 @@ class Admin::SwipersController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @swiper.update(swiper_params)
+        Log.create(title: "更新轮播", user: current_user, desc: @swiper.title)
         format.html { redirect_to admin_swipers_path, notice: 'Swiper was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,6 +59,7 @@ class Admin::SwipersController < Admin::ApplicationController
   def destroy
     @swiper.destroy
     respond_to do |format|
+      Log.create(title: "删除轮播", user: current_user, desc: @swiper.title)
       format.html { redirect_to admin_swipers_url, notice: 'Swiper was successfully destroyed.' }
       format.json { head :no_content }
     end

@@ -33,6 +33,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   def images
     image = Image.new(file: params['image']['attachment'])
     if image.save
+      Log.create(title: "上传图片", user: current_user, desc: image.file.url )
       render json: {status: 'success', url: image.file.url}
     else
       render json: {status: 'error', msg: '上传失败'}
@@ -46,6 +47,7 @@ class Admin::ArticlesController < Admin::ApplicationController
 
     respond_to do |format|
       if @article.save
+        Log.create(title: "创建 #{@article.title} %> 文章", user: current_user )
         format.html { redirect_to [:admin, @article], notice: 'Article was successfully created.' }
         format.json { render action: 'show', status: :created, location: @article }
       else
@@ -60,6 +62,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
+        Log.create(title: "更新 #{@article.title} %> 文章", user: current_user )
         format.html { redirect_to [:admin, @article], notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
@@ -74,6 +77,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
+      Log.create(title: "删除 #{@article.title} %> 文章", user: current_user )
       format.html { redirect_to admin_articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end

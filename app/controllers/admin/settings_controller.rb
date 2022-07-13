@@ -30,6 +30,7 @@ class Admin::SettingsController < Admin::ApplicationController
 
     respond_to do |format|
       if @setting.save
+
         format.html { redirect_to [:admin, @setting, 'index'], notice: 'Setting was successfully created.' }
         format.json { render action: 'show', status: :created, location: @setting }
       else
@@ -49,6 +50,7 @@ class Admin::SettingsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @setting.update(setting_params)
+        Log.create(title: "更新设置", user: current_user)
         format.html { redirect_to  [:edit, :admin, @setting], notice: 'Setting was successfully updated.' }
         format.json { head :no_content }
       else

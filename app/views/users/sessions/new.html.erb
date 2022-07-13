@@ -10,6 +10,7 @@
       <%# <p class="login-box-msg">Sign in to start your session</p> %>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= flash[:alert] %>
         <div class="input-group mb-3">
           <%# <input type="email" class="form-control" placeholder="Email"> %>
           <%# <div class="field"> %>
@@ -38,7 +39,7 @@
           <div class="col-8">
             <% if devise_mapping.rememberable? %>
               <div class="icheck-primary">
-                <%= f.label :remember_me, id: 'remember', label: '记住我' %>
+                <%= f.label :remember_me, '记住我', id: 'remember', style: 'padding-left: 0 !important; vertical-align: middle' %>
                 <%# <input type="checkbox" id="remember"> %>
                 <%= f.check_box :remember_me %>
               </div>

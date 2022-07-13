@@ -1,0 +1,22 @@
+
+<div class="card">
+    <div class="card-header">
+      设置权限
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <%= form_for(@account, url: admin_account_path(@account), method: :put) do |f| %>
+        <div class="form-group">
+          <label style="display: flex">
+            <input class="check_boxes optional" id="user_organizations" name="user[]" type="checkbox" value="organizations">
+            组织架构
+          </label>
+        </div>
+        <div class="actions">
+          <%= f.submit "提交", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <!-- /.card-body -->
+</div>
+

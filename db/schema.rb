@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_26_151031) do
+ActiveRecord::Schema.define(version: 2022_07_11_224640) do
 
   create_table "article_categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(version: 2021_12_26_151031) do
     t.string "path"
     t.string "name"
     t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -129,6 +137,7 @@ ActiveRecord::Schema.define(version: 2021_12_26_151031) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "perm", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
