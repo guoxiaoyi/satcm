@@ -5,7 +5,7 @@ class Admin::SwipersController < Admin::ApplicationController
   # GET /admin/swipers
   # GET /admin/swipers.json
   def index
-    @swipers = Swiper.all.order(position: :desc)
+    @swipers = Swiper.all.order(position: :desc).group_by(&:category)
   end
 
   # GET /admin/swipers/1

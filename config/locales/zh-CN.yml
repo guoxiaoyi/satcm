@@ -21,6 +21,9 @@ zh-CN:
         link: 网址
         position: 位置
         category: 类型
+        category_types:
+          big: 大图
+          small: 小图
       setting:
         title: 网站标题
         description: 描述

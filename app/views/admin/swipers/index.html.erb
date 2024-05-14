@@ -6,31 +6,38 @@
         </h3>
     </div>
     <!-- /.card-header -->
-    <div class="card-body">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                <th>标题</th>
-                <th>图片</th>
-                <th>链接</th>
-                <th></th>
-                </tr>
-            </thead>
+    <% @swipers.each do |category, children| %>
+        
+        <div class="card-body">
+            <h4><%= t("activerecord.attributes.swiper.category_types.#{category}") %></h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th>排序</th>
+                    <th>标题</th>
+                    <th>图片</th>
+                    <th>链接</th>
+                    <th></th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <% @swipers.each do |swiper| %>
-                <tr>
-                    <td><%= swiper.title %></td>
-                    <td><%= image_tag swiper.url.url, width: 60 %></td>
-                    <td><%= swiper.link %></td>
-                    <td>
-                        <%= link_to '编辑', edit_admin_swiper_path(swiper) %>
-                        <%= link_to '删除', [:admin, swiper], method: :delete, data: { confirm: '确定删除吗' } %>
-                    </td>
-                </tr>
-                <% end %>
-            </tbody>
-        </table> 
-    </div>
+                <tbody>
+                    <% children.each do |swiper| %>
+                    <tr>
+                        <td><%= swiper.position %></td>
+                        <td><%= swiper.title %></td>
+                        <td><%= image_tag swiper.url.url, width: 60 %></td>
+                        <td><%= swiper.link %></td>
+                        <td>
+                            <%= link_to '编辑', edit_admin_swiper_path(swiper) %>
+                            <%= link_to '删除', [:admin, swiper], method: :delete, data: { confirm: '确定删除吗' } %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table> 
+        </div>
+    <% end %>
+    
     <!-- /.card-body --> 
 </div>
