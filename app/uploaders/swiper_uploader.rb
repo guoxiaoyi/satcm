@@ -1,7 +1,6 @@
 class SwiperUploader < CarrierWave::Uploader::Base
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  # Include MiniMagick support:
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -24,9 +23,19 @@ class SwiperUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
+  process :compress
   # def scale(width, height)
   #   # do something
   # end
+
+  private
+
+  def compress
+    manipulate! do |img|
+      img.quality "70" # Adjust the compression quality. Lower values mean higher compression and lower quality
+      img
+    end
+  end
 
   # Create different versions of your uploaded files:
   # version :thumb do

@@ -47,7 +47,9 @@
   tinyMCE.init({
     selector: 'textarea.tinymce',
     plugins: 'preview fullscreen code image imagetools media link lists table textcolor',
-    toolbar: 'formatselect | bold italic strikethrough forecolor backcolor removeformat | link image | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | fullscreen preview',
+    fontsize_formats: '12px 14px 16px 18px 20px 22px 24px 26px 28px 30px',
+    font_formats: 'Arial=arial,helvetica,sans-serif;  仿宋_GB2312=仿宋_GB2312;',
+    toolbar: 'formatselect | fontselect |fontsizeselect | bold italic strikethrough forecolor backcolor removeformat | link image | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | fullscreen preview',
     readonly: $('textarea.tinymce').attr('readonly') == 'readonly',
     language: 'zh_CN',
     images_upload_handler: function (blobInfo, success, failure) {
